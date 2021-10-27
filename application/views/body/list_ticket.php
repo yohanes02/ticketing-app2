@@ -15,6 +15,7 @@
 					<div class="panel-heading"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg>
 <a href="<?php echo base_url();?>departemen/add" style="text-decoration:none">List Ticket  <a href="<?php echo base_url();?>list_ticket/pdflistticket" class="btn btn-danger" target="_blank">Pdf</a></a></div>
 					<div class="panel-body">
+		<?php echo $this->session->flashdata("msg");?>
 						<table data-toggle="table" data-show-refresh="false" data-show-toggle="true" data-show-columns="true" data-search="true"  data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
@@ -68,7 +69,6 @@
 		</div><!--/.row-->	
 
 
-		<?php echo $this->session->flashdata("msg");?>
 
 	
 						<script>

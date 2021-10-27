@@ -267,7 +267,7 @@ class Model_app extends CI_Model
     {
         $sql = "SELECT A.nama, A.nik FROM karyawan A 
                 LEFT JOIN bagian_departemen B ON B.id_bagian_dept = A.id_bagian_dept
-                LEFT JOIN departemen C ON C.id_dept = b.id_dept 
+                LEFT JOIN departemen C ON C.id_dept = B.id_dept 
                 ORDER BY nama";
         $query = $this->db->query($sql);
 
@@ -341,6 +341,16 @@ class Model_app extends CI_Model
         }
         return $value;
     }
+
+	function dropdown_teknisi2() {
+		$sql = "SELECT T.id_teknisi, K.nama FROM karyawan K, teknisi T WHERE K.id_jabatan = T.id_kategori AND K.id_jabatan = 4 AND K.nik = T.nik";
+        $query = $this->db->query($sql);
+		$value[''] = '-- PILIH --';
+		foreach ($query->result() as $row) {
+			$value[$row->id_teknisi] = $row->nama;
+		}
+		return $value;
+	}
 
 
     public function dropdown_jk()

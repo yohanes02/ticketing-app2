@@ -103,6 +103,8 @@ function index()
 
 		$data['jml_ticket_solved'] = $precent_ticket_solved;
 		$data['jml_ticket_process'] = $precent_ticket_process;	
+		$data['jml_ticket_solved_raw'] = $row_ticket_solved->jml_ticket_solved;
+		$data['jml_ticket_process_raw'] = $row_ticket_process->jml_ticket_process;	
 		$data['jml_ticket_app_int'] = $precent_ticket_app_int;
 		$data['jml_ticket_app_tek'] = $precent_ticket_app_tek;
 

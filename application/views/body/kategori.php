@@ -15,6 +15,7 @@
 					<div class="panel-heading"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg>
 <a href="<?php echo base_url();?>kategori/add" style="text-decoration:none">Tambah Data Kategori</a></div>
 					<div class="panel-body">
+		<?php echo $this->session->flashdata("msg");?>
 						<table data-toggle="table" data-show-refresh="false" data-show-toggle="true" data-show-columns="true" data-search="true"  data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
@@ -42,7 +43,6 @@
 			</div>
 		</div><!--/.row-->	
 
-		<?php echo $this->session->flashdata("msg");?>
 
 	
 						<script>
