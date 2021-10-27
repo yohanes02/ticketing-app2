@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2021 at 07:18 PM
+-- Generation Time: Oct 27, 2021 at 07:25 PM
 -- Server version: 5.7.33-0ubuntu0.16.04.1
 -- PHP Version: 5.6.40-50+ubuntu16.04.1+deb.sury.org+1
 
@@ -153,7 +153,7 @@ CREATE TABLE `karyawan` (
 --
 
 INSERT INTO `karyawan` (`nik`, `nama`, `email`, `alamat`, `jk`, `id_bagian_dept`, `id_jabatan`) VALUES
-('K0001', 'NUR SURATMAN', 'ysirorus11@gmail.com', 'TANGERANG', 'LAKI-LAKI', 5, 2),
+('K0001', 'NUR SURATMAN', '', 'TANGERANG', 'LAKI-LAKI', 5, 2),
 ('K0002', 'DESI', NULL, 'JAKARTA', 'PEREMPUAN', 5, 3),
 ('K0003', 'MUHLISON', NULL, 'TANGERANG', 'LAKI-LAKI', 5, 4),
 ('K0004', 'ZEIN', NULL, 'BOJONG', 'LAKI-LAKI', 6, 4),
