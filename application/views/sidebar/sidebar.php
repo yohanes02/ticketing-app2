@@ -15,7 +15,7 @@
 <li><a href="<?php echo base_url();?>user/user_list"><svg class="glyph stroked calendar"><use xlink:href="#stroked-male-user"></use></svg> User</a></li>
 <li><a href="<?php echo base_url();?>jabatan/jabatan_list"><svg class="glyph stroked calendar"><use xlink:href="#stroked-pen-tip"></use></svg> Jabatan</a></li>
 <li><a href="<?php echo base_url();?>departemen/departemen_list"><svg class="glyph stroked calendar"><use xlink:href="#stroked-app-window"></use></svg> Departemen</a></li>
-<li><a href="<?php echo base_url();?>bagian_departemen/bagian_departemen_list"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-app-window"></use></svg> Bagian Departemen</a></li>
+<li><a href="<?php echo base_url();?>bagian_departemen/bagian_departemen_list"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-app-window"></use></svg> Divisi</a></li>
 <li><a href="<?php echo base_url();?>kategori/kategori_list"><svg class="glyph stroked calendar"><use xlink:href="#stroked-app-window"></use></svg> Kategori</a></li>
 <li><a href="<?php echo base_url();?>sub_kategori/sub_kategori_list"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-app-window"></use></svg> Sub Kategori</a></li>
 <li><a href="<?php echo base_url();?>teknisi/teknisi_list"><svg class="glyph stroked calendar"><use xlink:href="#stroked-male-user"></use></svg> Teknisi</a></li>

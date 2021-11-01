@@ -22,14 +22,15 @@
 					<input type="hidden" class="form-control" name="id_sub_kategori" value="<?php echo $id_sub_kategori;?>">
 
 					<div class="form-group">
-						<label>Nama Sub Kategori</label>
+						<label>Kategori</label>
+						<?php echo form_dropdown('id_kategori',$dd_kategori, $id_kategori, 'class="form-control"');?>
+					</div>
+					
+					<div class="form-group">
+						<label>Sub Kategori</label>
 						<input class="form-control" name="nama_sub_kategori" value="<?php echo $nama_sub_kategori;?>" placeholder="Nama Sub Kategori" required>
 					</div>
 
-					<div class="form-group">
-						<label>Nama Kategori</label>
-						<?php echo form_dropdown('id_kategori',$dd_kategori, $id_kategori, 'class="form-control"');?>
-					</div>
 
 					<button type="submit" class="btn btn-primary">Simpan</button>
 					<a href="<?php echo base_url();?>sub_kategori/sub_kategori_list"  class="btn btn-default">Batal</a>

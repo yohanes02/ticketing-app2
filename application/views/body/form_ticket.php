@@ -38,7 +38,7 @@
 			<div class="panel-heading"><svg class="glyph stroked male user ">
 					<use xlink:href="#stroked-male-user" />
 				</svg>
-				<a href="#" style="text-decoration:none; font-color:white">Ticket</a>
+				<a href="#" style="text-decoration:none; font-color:white">Pembuatan Ticket</a>
 			</div>
 			<div class="panel-body">
 
@@ -49,16 +49,24 @@
 						<input type="hidden" class="form-control" name="id_user" value="<?php echo $id_user; ?>">
 
 						<div class="panel panel-danger">
-							<div class="panel-heading">
+							<!-- <div class="panel-heading">
 								Pelapor Masalah
+							</div> -->
+							<div class="panel-heading">
+								Detail Tiket
 							</div>
 							<div class="panel-body">
 
 								<div class="col-md-6">
 
-									<div class="form-group">
+									<!-- <div class="form-group">
 										<label>NIK</label>
 										<input class="form-control" name="nama" placeholder="Nama" value="<?php echo $id_user; ?>" disabled>
+									</div> -->
+
+									<div class="form-group">
+										<label>No Tiket</label>
+										<input class="form-control" name="nama" placeholder="Nama" value="<?php echo $id_ticket; ?>" disabled>
 									</div>
 
 									<div class="form-group">
@@ -71,12 +79,12 @@
 								<div class="col-md-6">
 
 									<div class="form-group">
-										<label>Nama</label>
+										<label>User</label>
 										<input class="form-control" name="nama" placeholder="Departemen" value="<?php echo $nama; ?>" disabled>
 									</div>
 
 									<div class="form-group">
-										<label>Bagian Departemen</label>
+										<label>Divisi</label>
 										<input class="form-control" name="departemen" placeholder="Departemen" value="<?php echo $bagian_departemen; ?>" disabled>
 									</div>
 
@@ -86,20 +94,19 @@
 						</div>
 
 						<div class="panel panel-danger">
-							<div class="panel-heading">
+							<!-- <div class="panel-heading">
 								Deskripsi Masalah
-							</div>
+							</div> -->
 							<div class="panel-body">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Kategori Masalah</label>
+										<label>Layanan</label>
 										<?php echo form_dropdown('id_kategori', $dd_kategori, $id_kategori, ' id="id_kategori" required class="form-control"'); ?>
 									</div>
 
 									<div id="div-order">
 
-										<?php if ($flag == "edit") {
-
+										<?php if ($flag == "edit") {											
 											echo form_dropdown('id_sub_kategori', $dd_sub_kategori, $id_sub_kategori, 'required class="form-control"');
 										} else {
 										}
@@ -107,22 +114,23 @@
 
 									</div>
 									<div class="form-group">
-										<label>Ugently / Kondisi</label>
+										<label>Prioritas Task</label>
 										<?php echo form_dropdown('id_kondisi', $dd_kondisi, $id_kondisi, ' id="id_kondisi" required class="form-control"'); ?>
 									</div>
+
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Subject Masalah</label>
-										<input class="form-control" name="problem_summary" placeholder="problem_summary" value="<?php echo $problem_summary; ?>" required>
+										<label>Nama Tiket</label>
+										<input class="form-control" name="problem_summary" value="<?php echo $problem_summary; ?>" required>
+									</div>
+									<div class="form-group">
+										<label>Deskripsi</label>
+										<textarea name="problem_detail" class="form-control" rows="5"><?php echo $problem_detail; ?></textarea>
 									</div>
 									<div class="form-group">
 										<label>Upload Kendala</label>
 										<input type="file" class="form-control" id="file_pic" name="file_pic">
-									</div>
-									<div class="form-group">
-										<label>Deskripsi Masalah</label>
-										<textarea name="problem_detail" class="form-control" rows="5"><?php echo $problem_detail; ?></textarea>
 									</div>
 								</div>
 							</div>
@@ -135,7 +143,7 @@
 							<div class="panel-body">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Teknisi</label>
+										<label>Engineer</label>
 										<?php echo form_dropdown('id_teknisi',$dd_teknisi, $id_teknisi, 'id="id_teknisi" class="form-control"');?>
 									</div>
 								</div>

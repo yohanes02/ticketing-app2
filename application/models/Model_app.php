@@ -136,7 +136,7 @@ class Model_app extends CI_Model
 
     public function datamyassignment($id)
     {
-        $query = $this->db->query("SELECT A.progress, A.status, A.id_ticket, A.reported, A.tanggal, B.nama_sub_kategori, C.nama_kategori
+        $query = $this->db->query("SELECT A.progress, A.problem_summary, A.status, A.id_ticket, A.reported, A.tanggal, B.nama_sub_kategori, C.nama_kategori
                                    FROM ticket A 
                                    LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                                    LEFT JOIN kategori C ON C.id_kategori = B.id_kategori

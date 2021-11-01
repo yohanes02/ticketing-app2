@@ -22,7 +22,7 @@
 					<input type="hidden" class="form-control" name="id_kategori" value="<?php echo $id_kategori;?>">
 
 					<div class="form-group">
-						<label>Nama Kategori</label>
+						<label>Kategori</label>
 						<input class="form-control" name="nama_kategori" value="<?php echo $nama_kategori;?>" placeholder="Nama Kategori" required>
 					</div>
 

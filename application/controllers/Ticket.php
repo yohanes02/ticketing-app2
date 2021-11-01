@@ -74,7 +74,8 @@ class Ticket extends Core_Controller
 
 		$row = $this->db->query($cari_data)->row();
 
-		$data['id_ticket'] = "";
+		// $getkodeticket = $this->model_app->getkodeticket();
+		$data['id_ticket'] = $this->model_app->getkodeticket();
 
 		$data['id_user'] = $id_user;
 		$data['nama'] = $row->nama;
@@ -130,6 +131,8 @@ class Ticket extends Core_Controller
 		$problem_summary = strtoupper(trim($this->input->post('problem_summary')));
 		$problem_detail = strtoupper(trim($this->input->post('problem_detail')));
 		$id_teknisi = strtoupper(trim($this->input->post('id_teknisi')));
+		$problem_comment = trim($this->input->post('problem_comment'));
+		$ticket_priority = "Immediate";
 
 		$data['id_ticket'] = $ticket;
 		$data['reported'] = $id_user;
@@ -139,6 +142,7 @@ class Ticket extends Core_Controller
 		$data['problem_detail'] = $problem_detail;
 		$data['id_teknisi'] = $id_teknisi;
 		$data['photo'] = "";
+		$data['comment'] = $problem_comment;
 		$data['status'] = 4;
 		$data['progress'] = 0;
 
@@ -161,6 +165,52 @@ class Ticket extends Core_Controller
 			$photo = 'photos/' . $upload;
 		}
 		$data['photo'] = $photo;
+
+		// SEND EMAIL
+		$this->db->trans_start();
+		$query = "SELECT K.nama, K.email FROM teknisi T, karyawan K WHERE T.id_teknisi = '$id_teknisi' AND T.nik = K.nik";
+		$row = $this->db->query($query)->row(); 
+		$this->db->trans_complete();
+
+		$content = '
+		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+		<html xmlns="http://www.w3.org/1999/xhtml">
+			<head>
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			 </head>
+			 <body>
+				<table align="center" border="0" cellpadding="0" cellspacing="0" width="1000" style="margin:0px">
+					<tr>
+						<td style="background-color:rgb(0, 178, 255); color: rgb(255, 255, 255);">
+							<h1>Smart Helpdesk Ticketing</h1>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h2>Pekerjaan Baru</h2>
+							<div>
+								<p>Yth, Bapak/Ibu ' . $row->nama . '.</p>
+								<br>
+								<p>Daftar pekerjaan berikut perlu untuk difollow up segera.</p>
+								<br>
+								<p>Nomor Tiket: <strong>'. $ticket .'</strong></p>
+								<p>Nama Tiket: <strong>'. $problem_summary .'</strong></p>
+								<p>Prioritas Tiket: <strong>'. $ticket_priority .'</strong></p>
+								<br>
+								<p>Hormat kami,</p>
+								<p><strong>Smart Helpdesk Ticketing</strong></p>
+							<div>
+						</td>
+					</tr>
+				</table>
+			 </body>
+		</html>';
+		$this->email->from('helpdeskticketing@gmail.com', 'Smart Helpdesk Ticketing');
+		$this->email->to($row->email);
+		$this->email->subject('Pekerjaan Baru Telah Diterima');
+		$this->email->message($content);
+		$this->email->send();
 
 		$this->db->trans_start();
 
