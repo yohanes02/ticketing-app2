@@ -127,6 +127,7 @@ class Ticket extends Core_Controller
 		$id_user = strtoupper(trim($this->input->post('id_user')));
 		$tanggal = $time = date("Y-m-d  H:i:s");
 
+		$id_kondisi = $this->input->post('id_kondisi');
 		$id_sub_kategori = strtoupper(trim($this->input->post('id_sub_kategori')));
 		$problem_summary = strtoupper(trim($this->input->post('problem_summary')));
 		$problem_detail = strtoupper(trim($this->input->post('problem_detail')));
@@ -137,6 +138,7 @@ class Ticket extends Core_Controller
 		$data['id_ticket'] = $ticket;
 		$data['reported'] = $id_user;
 		$data['tanggal'] = $tanggal;
+		$data['id_kondisi'] = $id_kondisi;
 		$data['id_sub_kategori'] = $id_sub_kategori;
 		$data['problem_summary'] = $problem_summary;
 		$data['problem_detail'] = $problem_detail;
@@ -172,6 +174,8 @@ class Ticket extends Core_Controller
 		$row = $this->db->query($query)->row(); 
 		$this->db->trans_complete();
 
+		$query2 = "select nama_kondisi from kondisi where id_kondisi = '$id_kondisi'";
+		$row2 = $this->db->query($query2)->row();
 		$content = '
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 		<html xmlns="http://www.w3.org/1999/xhtml">
@@ -196,7 +200,7 @@ class Ticket extends Core_Controller
 								<br>
 								<p>Nomor Tiket: <strong>'. $ticket .'</strong></p>
 								<p>Nama Tiket: <strong>'. $problem_summary .'</strong></p>
-								<p>Prioritas Tiket: <strong>'. $ticket_priority .'</strong></p>
+								<p>Prioritas Tiket: <strong>'. $row2->nama_kondisi .'</strong></p>
 								<br>
 								<p>Hormat kami,</p>
 								<p><strong>Smart Helpdesk Ticketing</strong></p>

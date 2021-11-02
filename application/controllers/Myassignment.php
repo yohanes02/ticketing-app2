@@ -161,11 +161,13 @@ class Myassignment extends CI_Controller
 
 		//end notification
 
-		$sql = "SELECT A.progress, A.status, D.nama, C.id_kategori, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori, D.email, A.problem_summary
+		$sql = "SELECT A.progress, A.status, D.nama, C.id_kategori, A.id_ticket, A.tanggal, A.tanggal_solved, B.nama_sub_kategori, C.nama_kategori, D.email, A.problem_summary, A.problem_detail, A.photo, A.comment, F.nama_dept, E.nama_bagian_dept
                 FROM ticket A 
                 LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                 LEFT JOIN kategori C ON C.id_kategori = B.id_kategori 
                 LEFT JOIN karyawan D ON D.nik = A.reported 
+				LEFT JOIN bagian_departemen E ON E.id_bagian_dept = D.id_bagian_dept
+				LEFT JOIN departemen F ON F.id_dept = E.id_dept
                 WHERE A.id_ticket = '$id'";
 
 		$row = $this->db->query($sql)->row();
@@ -180,11 +182,17 @@ class Myassignment extends CI_Controller
 		$data['id_ticket'] = $id;
 		$data['progress'] = $row->progress;
 		$data['tanggal'] = $row->tanggal;
+		$data['tanggal_solved'] = $row->tanggal_solved;
+		$data['nama_dept'] = $row->nama_dept;
+		$data['nama_divisi'] = $row->nama_bagian_dept;
 		$data['nama_sub_kategori'] = $row->nama_sub_kategori;
 		$data['nama_kategori'] = $row->nama_kategori;
 		$data['reported'] = $row->nama;
 		$data['reported_email'] = $row->email;
 		$data['problem_summary'] = $row->problem_summary;
+		$data['problem_detail'] = $row->problem_detail;
+		$data['photo'] = $row->photo;
+		$data['comment'] = $row->comment;
 
 		$this->load->view('template', $data);
 	}

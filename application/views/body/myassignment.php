@@ -53,18 +53,16 @@
 											<td data-field="id"><?php echo $row->problem_summary; ?></td>
 											<td data-field="id"><?php echo $this->session->userdata('nama'); ?></td>
 											<td data-field="id"><?php echo $row->tanggal; ?></td>
-											<!-- <td data-field="id"><?php //echo $row->nama_kategori; ?></td>
-											<td data-field="id"><?php //echo $row->nama_sub_kategori; ?></td> -->
+											<!-- <td data-field="id"><?php //echo $row->nama_kategori; 
+																		?></td>
+											<td data-field="id"><?php //echo $row->nama_sub_kategori; 
+																?></td> -->
 											<td data-field="id"><?php echo $row->progress; ?></td>
 											<td data-field="id"><?php echo "Durasi" ?></td>
 											<td data-field="id"><?php echo "Indikator" ?></td>
-											<td data-field="id">
-
-
+											<td data-field="id" class="center_aksi">
 												<?php if ($row->status == 4) { ?>
-
-
-
+													<a href="<?php echo base_url(); ?>myassignment/ticket_detail/<?php echo $row->id_ticket; ?>" class="btn btn-default">Update Tiket</a>
 												<?php } else if ($row->status == 3) { ?>
 													<a class="ubah btn btn-success btn-xs" href="<?php echo base_url(); ?>myassignment/terima/<?php echo $row->id_ticket; ?>"><span class="glyphicon glyphicon-thumbs-up"></span></a>
 													<a class="ubah btn btn-danger btn-xs" href="<?php echo base_url(); ?>myassignment/pending/<?php echo $row->id_ticket; ?>"><span class="glyphicon glyphicon-minus-sign"></span></a>

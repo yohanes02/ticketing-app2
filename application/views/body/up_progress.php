@@ -34,7 +34,7 @@
 										<div class="col-md col-sm">
 											<?php echo ": " . $id_ticket; ?>
 										</div>
-									</div>	
+									</div>
 								</div>
 								<div class="list-group-item">
 									<div class="col">
@@ -44,7 +44,7 @@
 										<div class="col-md col-sm">
 											<?php echo ": " . $reported; ?>
 										</div>
-									</div>	
+									</div>
 								</div>
 								<div class="list-group-item">
 									<div class="col">
@@ -52,9 +52,9 @@
 											<strong>Departemen</strong>
 										</div>
 										<div class="col-md col-sm">
-											<?php echo ": " . "dept"; ?>
+											<?php echo ": " . $nama_dept; ?>
 										</div>
-									</div>	
+									</div>
 								</div>
 								<div class="list-group-item">
 									<div class="col">
@@ -62,9 +62,9 @@
 											<strong>Divisi</strong>
 										</div>
 										<div class="col-md col-sm">
-											<?php echo ": " . "div"; ?>
+											<?php echo ": " . $nama_divisi; ?>
 										</div>
-									</div>	
+									</div>
 								</div>
 								<div class="list-group-item">
 									<div class="col">
@@ -74,7 +74,7 @@
 										<div class="col-md col-sm">
 											<?php echo ": " . $nama_kategori; ?>
 										</div>
-									</div>	
+									</div>
 								</div>
 								<div class="list-group-item">
 									<div class="col">
@@ -84,7 +84,7 @@
 										<div class="col-md col-sm">
 											<?php echo ": " . $nama_sub_kategori; ?>
 										</div>
-									</div>	
+									</div>
 								</div>
 								<div class="list-group-item">
 									<div class="col">
@@ -92,9 +92,9 @@
 											<strong>Nama Tiket</strong>
 										</div>
 										<div class="col-md col-sm">
-											<?php echo ": " . "namatiket"; ?>
+											<?php echo ": " . $problem_summary; ?>
 										</div>
-									</div>	
+									</div>
 								</div>
 								<div class="list-group-item">
 									<div class="col">
@@ -102,9 +102,9 @@
 											<strong>Deskripsi</strong>
 										</div>
 										<div class="col-md col-sm">
-											<?php echo ": " . "desc"; ?>
+											<?php echo ": " . $problem_detail; ?>
 										</div>
-									</div>	
+									</div>
 								</div>
 								<div class="list-group-item">
 									<div class="col">
@@ -112,9 +112,10 @@
 											<strong>Foto</strong>
 										</div>
 										<div class="col-md col-sm">
-											<?php echo ": " . "foto"; ?>
+											<!-- <?php //echo ": " . $photo; ?> -->
+											<img src="<?php echo base_url() . $photo ?>" alt="" width="500px" height="300px">
 										</div>
-									</div>	
+									</div>
 								</div>
 								<div class="list-group-item">
 									<div class="col">
@@ -124,13 +125,18 @@
 										<div class="col-md col-sm">
 											<?php echo ": " . "priority"; ?>
 										</div>
-									</div>	
+									</div>
 								</div>
-								<!-- <a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $tanggal; ?></a>
-								<a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $nama_kategori; ?></a>
-								<a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $nama_sub_kategori; ?></a>
-								<a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $reported; ?></a>
-								<a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $reported_email; ?></a> -->
+								<!-- <a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $tanggal; 
+																									?></a>
+								<a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $nama_kategori; 
+																							?></a>
+								<a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $nama_sub_kategori; 
+																							?></a>
+								<a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $reported; 
+																							?></a>
+								<a href="#" class="list-group-item"><strong></strong> &nbsp;<?php //echo $reported_email; 
+																							?></a> -->
 							</div>
 							<div class="list-group">
 								<a href="#" class="list-group-item active">
@@ -196,59 +202,91 @@
 								</div>
 
 							</div>
-							<div class="list-group">
+							<!-- <div class="list-group">
 								<a href="#" class="list-group-item active">
 									<strong>Riwayat Komentar</strong>
 								</a>
-								<!-- <a href="#" class="list-group-item"> -->
-									<div class="list-group-item">
-										<div class="col">
-											<div class="col-md-2 col-sm-4">
-												<strong>Nama</strong>
-											</div>
-											<div class="col-md col-sm">
-												<?php echo ": " . $reported; ?>
-											</div>
+								<div class="list-group-item">
+									<div class="col">
+										<div class="col-md-2 col-sm-4">
+											<strong>Nama</strong>
+										</div>
+										<div class="col-md col-sm">
+											<?php //echo ": " . $reported; ?>
 										</div>
 									</div>
-									<div class="list-group-item">
-										<div class="col">
-											<div class="col-md-2 col-sm-4">
-												<strong>Tanggal Mulai</strong>
-											</div>
-											<div class="col-md col-sm">
-												<?php echo ": " . "tglmulai"; ?>
-											</div>
+								</div>
+								<div class="list-group-item">
+									<div class="col">
+										<div class="col-md-2 col-sm-4">
+											<strong>Tanggal Mulai</strong>
+										</div>
+										<div class="col-md col-sm">
+											<?php //echo ": " . $tanggal; ?>
 										</div>
 									</div>
-									<div class="list-group-item">
-										<div class="col">
-											<div class="col-md-2 col-sm-4">
-												<strong>Tanggal Selesai</strong>
-											</div>
-											<div class="col-md col-sm">
-												<?php echo ": " . "tglselesai"; ?>
-											</div>
+								</div>
+								<div class="list-group-item">
+									<div class="col">
+										<div class="col-md-2 col-sm-4">
+											<strong>Tanggal Selesai</strong>
+										</div>
+										<div class="col-md col-sm">
+											<?php //if ($tanggal_solved == '0000-00-00 00:00:00') {
+												//echo ": " . $tanggal;
+											//} else {
+												//echo ": " . $tanggal_solved;
+											//}; ?>
 										</div>
 									</div>
-									<div class="list-group-item">
-										<div class="col">
-											<div class="col-md-2 col-sm-4">
-												<strong>Komentar</strong>
-											</div>
-											<div class="col-md col-sm">
-												<?php echo ": " . "komentar"; ?>
-											</div>
+								</div>
+								<div class="list-group-item">
+									<div class="col">
+										<div class="col-md-2 col-sm-4">
+											<strong>Komentar</strong>
+										</div>
+										<div class="col-md col-sm">
+											<?php //echo ": " . $comment; ?>
 										</div>
 									</div>
-								<!-- </a> -->
+								</div>
+							</div> -->
+							<div class="panel panel-danger">
+								<div class="panel-heading">Riwayat Komentar</div>
+								<div class="panel-body">
+
+									<table class="table table-condensed">
+										<tr>
+											<th>No</th>
+											<th>Nama</th>
+											<th>Tanggal Mulai M</th>
+											<th>Tanggal Selesai</th>
+											<th>Komentar</th>
+										</tr>
+
+										<tr>
+											<td>1</td>
+											<td><?php echo $reported; ?></td>
+											<td><?php echo $tanggal; ?></td>
+											<td>
+												<?php if ($tanggal_solved == '0000-00-00 00:00:00') {
+													echo ": " . $tanggal;
+												} else {
+													echo ": " . $tanggal_solved;
+												}; ?>
+											</td>
+											<td><?php echo $comment; ?></td>
+										</tr>
+									</table>
+
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-lg-6">
-								<div class="form-group">
-											<label>Komentar</label>
-											<textarea name="deskripsi_progress" class="form-control" rows="10"></textarea>
-										</div>
+									<div class="form-group">
+										<label>Komentar</label>
+										<textarea name="deskripsi_progress" class="form-control" rows="10"></textarea>
+									</div>
 								</div>
 							</div>
 							<button type="submit" class="btn btn-primary">Simpan</button>

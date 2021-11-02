@@ -84,6 +84,19 @@ function index()
 
 		//KEPUASAN USER
 
+		// Priority Task
+		$get_priority_task = $this->db->query("select * from kondisi")->result_array();
+
+		$data['priority'] = [];
+		foreach ($get_priority_task as $key => $value) {
+			$jml = $this->db->query("select count(id_ticket) as jml_ticket from ticket where id_kondisi = '". $value['id_kondisi'] ."'")->row();
+			$a['jumlah'] = $jml->jml_ticket;
+			$a['nama'] = $value['nama_kondisi'];
+			array_push($data['priority'], $a);
+		}
+
+		// print_r($data['priority']);die;
+
 		
 
 			

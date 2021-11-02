@@ -145,6 +145,7 @@ class Model_app extends CI_Model
                                    LEFT JOIN karyawan F ON F.nik = E.nik
                                    WHERE F.nik = '$id'
                                    AND A.status IN (3,4,5,6)
+								   ORDER BY A.tanggal DESC
                                    ");
         return $query->result();
     }
@@ -343,7 +344,7 @@ class Model_app extends CI_Model
     }
 
 	function dropdown_teknisi2() {
-		$sql = "SELECT T.id_teknisi, K.nama FROM karyawan K, teknisi T WHERE K.id_jabatan = T.id_kategori AND K.id_jabatan = 4 AND K.nik = T.nik";
+		$sql = "SELECT T.id_teknisi, K.nama FROM karyawan K, teknisi T WHERE K.id_jabatan = 5 AND K.nik = T.nik";
         $query = $this->db->query($sql);
 		$value[''] = '-- PILIH --';
 		foreach ($query->result() as $row) {
