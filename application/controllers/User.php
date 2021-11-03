@@ -25,6 +25,7 @@ class User extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active8'] = "active";
 		$data['body'] = "body/user";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -79,6 +80,7 @@ class User extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active8'] = "active";
 		$data['body'] = "body/form_user";
 
 		$data['dd_karyawan'] = $this->model_app->dropdown_karyawan();
@@ -142,6 +144,7 @@ class User extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active8'] = "active";
 		$data['body'] = "body/form_user";
 
 		$id_dept = trim($this->session->userdata('id_dept'));

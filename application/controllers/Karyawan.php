@@ -25,6 +25,7 @@ class Karyawan extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active7'] = "active";
 		$data['body'] = "body/karyawan";
 
 
@@ -80,6 +81,7 @@ class Karyawan extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active7'] = "active";
 		$data['body'] = "body/form_karyawan";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -179,6 +181,7 @@ class Karyawan extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active7'] = "active";
 		$data['body'] = "body/form_karyawan";
 
 		$sql = "SELECT * FROM karyawan A LEFT JOIN jabatan B ON B.id_jabatan = A.id_jabatan

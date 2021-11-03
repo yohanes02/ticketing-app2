@@ -37,6 +37,7 @@ class Ticket extends Core_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active11'] = "active";
 		$data['body'] = "body/form_ticket";
 
 		$id_dept = trim($this->session->userdata('id_dept'));

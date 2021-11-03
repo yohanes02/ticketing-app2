@@ -24,6 +24,7 @@ function __construct(){
  	    $data['header'] = "header/header";
         $data['navbar'] = "navbar/navbar";
         $data['sidebar'] = "sidebar/sidebar";
+		$data['active12'] = "active";
         $data['body'] = "body/myticket";
 
         $id_dept = trim($this->session->userdata('id_dept'));
@@ -66,6 +67,7 @@ function __construct(){
     $data['header'] = "header/header";
         $data['navbar'] = "navbar/navbar";
         $data['sidebar'] = "sidebar/sidebar";
+		$data['active12'] = "active";
         $data['body'] = "body/progress_teknisi";
 
          $sql = "SELECT A.status, A.progress, A.tanggal, A.tanggal_solved, A.tanggal_proses, A.tanggal_solved, F.nama AS nama_teknisi, D.nama, C.id_kategori, A.id_ticket, A.problem_summary, A.problem_detail, A.tanggal, A.file, B.nama_sub_kategori, C.nama_kategori, G.nama_bagian_dept, H.nama_dept, I.nama_kondisi

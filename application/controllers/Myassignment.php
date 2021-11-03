@@ -25,6 +25,7 @@ class Myassignment extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active16'] = "active";
 		$data['body'] = "body/myassignment";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -133,6 +134,7 @@ class Myassignment extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active16'] = "active";
 		$data['body'] = "body/up_progress";
 
 		$id_dept = trim($this->session->userdata('id_dept'));

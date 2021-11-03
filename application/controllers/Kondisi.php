@@ -26,6 +26,7 @@ class Kondisi extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active6'] = "active";
 		$data['body'] = "body/kondisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -85,6 +86,7 @@ class Kondisi extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active6'] = "active";
 		$data['body'] = "body/form_kondisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -192,6 +194,7 @@ class Kondisi extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active6'] = "active";
 		$data['body'] = "body/form_kondisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));

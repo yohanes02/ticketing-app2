@@ -26,6 +26,7 @@ class List_ticket extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active13'] = "active";
 		$data['body'] = "body/list_ticket";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -66,6 +67,7 @@ class List_ticket extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active13'] = "active";
 		$data['body'] = "body/pilih_teknisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -169,6 +171,7 @@ class List_ticket extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active13'] = "active";
 		$data['body'] = "body/progress_teknisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));

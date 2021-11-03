@@ -25,6 +25,7 @@ function __construct(){
  	    $data['header'] = "header/header";
         $data['navbar'] = "navbar/navbar";
         $data['sidebar'] = "sidebar/sidebar";
+		$data['active2'] = "active";
         $data['body'] = "body/departemen";
 
         $id_dept = trim($this->session->userdata('id_dept'));
@@ -81,6 +82,7 @@ function __construct(){
  	    $data['header'] = "header/header";
         $data['navbar'] = "navbar/navbar";
         $data['sidebar'] = "sidebar/sidebar";
+		$data['active2'] = "active";
         $data['body'] = "body/form_departemen";
 
         $id_dept = trim($this->session->userdata('id_dept'));
@@ -157,6 +159,7 @@ function __construct(){
  	    $data['header'] = "header/header";
         $data['navbar'] = "navbar/navbar";
         $data['sidebar'] = "sidebar/sidebar";
+		$data['active2'] = "active";
         $data['body'] = "body/form_departemen";
 
 

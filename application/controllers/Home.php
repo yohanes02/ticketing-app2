@@ -29,6 +29,7 @@ function index()
         $data['navbar'] = "navbar/navbar";
         $data['sidebar'] = "sidebar/sidebar";
         $data['body'] = "body/dashboard";
+		$data['active1'] = "active";
 
         $id_dept = trim($this->session->userdata('id_dept'));
         $id_user = trim($this->session->userdata('id_user'));
@@ -153,6 +154,7 @@ function index()
 		{
 		$data['jml_feedback_negativ'] = $row_feedback_negativ->jml_feedback_negativ / $row_feedback->jml_feedback * 100;	
 		}	
+		// $data['active'] = 'active';
        
 
         $this->load->view('template', $data);

@@ -25,6 +25,7 @@ class Teknisi extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active10'] = "active";
 		$data['body'] = "body/teknisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -79,6 +80,7 @@ class Teknisi extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active10'] = "active";
 		$data['body'] = "body/form_teknisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -166,6 +168,7 @@ class Teknisi extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active10'] = "active";
 		$data['body'] = "body/form_teknisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));

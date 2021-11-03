@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<!--load view header -->
- <?php
- 	$this->load->view($header);
- ?>
- <!--/header-->
+	<?php
+	$this->load->view($header);
+	?>
+	<!--/header-->
 </head>
 
 <body>
 
-<?php
+	<?php
 
-$this->load->view($navbar);
+	$this->load->view($navbar);
 
- ?>	
+	?>
 
- <?php
+	<?php
 
-$this->load->view($sidebar);
+	$this->load->view($sidebar);
 
- ?>	
-
-	
-<!--mainbar-->
-
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+	?>
 
 
- <?php
+	<!--mainbar-->
 
-$this->load->view($body);
-
- ?>	
-
-</div>
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
 
- <!--/mainbar-->
+		<?php
+
+		$this->load->view($body);
+
+		?>
+
+	</div>
+
+
+	<!--/mainbar-->
 
 
 </body>
+
 </html>

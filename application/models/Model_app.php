@@ -370,6 +370,7 @@ class Model_app extends CI_Model
 	{
 		$value[''] = '--PILIH--';
 		$value['ADMIN'] = 'ADMIN';
+		$value['HELPDESK'] = 'HELPDESK';
 		$value['TEKNISI'] = 'TEKNISI';
 		$value['USER'] = 'USER';
 

@@ -25,6 +25,7 @@ class Dashboard_teknisi extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active14'] = "active";
 		$data['body'] = "body/dashboard_teknisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
@@ -67,6 +68,7 @@ class Dashboard_teknisi extends CI_Controller
 		$data['header'] = "header/header";
 		$data['navbar'] = "navbar/navbar";
 		$data['sidebar'] = "sidebar/sidebar";
+		$data['active14'] = "active";
 		$data['body'] = "body/report_teknisi";
 
 		$id_dept = trim($this->session->userdata('id_dept'));
