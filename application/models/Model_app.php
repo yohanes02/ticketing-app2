@@ -90,7 +90,7 @@ class Model_app extends CI_Model
 	public function datalist_ticket()
 	{
 
-		$query = $this->db->query("SELECT D.nama, F.nama_dept, A.status, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori, A.progress
+		$query = $this->db->query("SELECT D.nama, F.nama_dept, A.status, A.problem_summary, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori, A.progress
                                    FROM ticket A 
                                    LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                                    LEFT JOIN kategori C ON C.id_kategori = B.id_kategori
@@ -124,11 +124,12 @@ class Model_app extends CI_Model
 
 	public function datamyticket($id)
 	{
-		$query = $this->db->query("SELECT A.progress, A.tanggal_proses, A.tanggal_solved, A.id_teknisi, D.feedback, A.status, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori
+		$query = $this->db->query("SELECT A.progress, A.tanggal_proses, A.tanggal_solved, A.id_teknisi, A.problem_summary, E.nama, D.feedback, A.status, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori
                                    FROM ticket A 
                                    LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                                    LEFT JOIN kategori C ON C.id_kategori = B.id_kategori 
                                    LEFT JOIN history_feedback D ON D.id_ticket = A.id_ticket
+								   LEFT JOIN karyawan E ON E.nik = A.reported
                                    WHERE A.reported = '$id' ORDER BY A.tanggal DESC");
 		return $query->result();
 	}
@@ -136,16 +137,17 @@ class Model_app extends CI_Model
 
 	public function datamyassignment($id)
 	{
-		$query = $this->db->query("SELECT A.progress, A.problem_summary, A.status, A.id_ticket, A.reported, A.tanggal, B.nama_sub_kategori, C.nama_kategori
+		$query = $this->db->query("SELECT A.progress, A.problem_summary, A.status, A.id_ticket, A.reported, A.tanggal, B.nama_sub_kategori, C.nama_kategori, G.nama_kondisi
                                    FROM ticket A 
                                    LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                                    LEFT JOIN kategori C ON C.id_kategori = B.id_kategori
                                    LEFT JOIN karyawan D ON D.nik = A.reported
                                    LEFT JOIN teknisi E ON E.id_teknisi = A.id_teknisi
                                    LEFT JOIN karyawan F ON F.nik = E.nik
+								   LEFT JOIN kondisi G ON G.id_kondisi = A.id_kondisi
                                    WHERE F.nik = '$id'
                                    AND A.status IN (3,4,5,6)
-								   ORDER BY A.tanggal DESC
+								   ORDER BY G.nilai_akhir DESC, A.tanggal 
                                    ");
 		return $query->result();
 	}
@@ -175,7 +177,7 @@ class Model_app extends CI_Model
 
 	public function datakondisi()
 	{
-		$query = $this->db->query('SELECT * FROM kondisi');
+		$query = $this->db->query('SELECT * FROM kondisi ORDER BY nilai_akhir DESC');
 		return $query->result();
 	}
 
@@ -293,7 +295,7 @@ class Model_app extends CI_Model
 
 	public function dropdown_kondisi()
 	{
-		$sql = "SELECT * FROM kondisi ORDER BY nama_kondisi";
+		$sql = "SELECT * FROM kondisi ORDER BY nilai_akhir DESC";
 		$query = $this->db->query($sql);
 
 		$value[''] = '-- PILIH --';

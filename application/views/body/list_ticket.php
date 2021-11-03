@@ -26,11 +26,12 @@
 									<tr>
 										<th data-field="no" data-sortable="true" width="10px"> No</th>
 										<th data-field="idd3" data-sortable="true">Nomor Ticket</th>
-										<th data-field="iddds" data-sortable="true">Reported</th>
-										<th data-field="idddXs" data-sortable="true">Dept</th>
+										<th data-field="iddddddd" data-sortable="true">Tanggal</th>
+										<th data-field="idddddddd" data-sortable="true">Nama Tiket</th>
+										<th data-field="iddds" data-sortable="true">Pembuat Tiket</th>
+										<th data-field="idddXs" data-sortable="true">Departemen</th>
 										<th data-field="idddd" data-sortable="true">Layanan</th>
 										<th data-field="iddddd" data-sortable="true">Sub Layanan</th>
-										<th data-field="iddddddd" data-sortable="true">Tanggal</th>
 										<th data-field="iddd" data-sortable="true">Progres(%)</th>
 										<th data-field="idddddd" data-sortable="true">Status</th>
 										<th>Aksi</th>
@@ -50,11 +51,12 @@
 												<?php } ?>
 
 											</td>
+											<td data-field="id"><?php echo $row->tanggal; ?></td>
+											<td data-field="id"><?php echo $row->problem_summary; ?></td>
 											<td data-field="iddsd"><?php echo $row->nama; ?></td>
 											<td data-field="iddsd"><?php echo $row->nama_dept; ?></td>
 											<td data-field="id"><?php echo $row->nama_kategori; ?></td>
 											<td data-field="id"><?php echo $row->nama_sub_kategori; ?></td>
-											<td data-field="id"><?php echo $row->tanggal; ?></td>
 											<td data-field="id"><?php echo $row->progress; ?></td>
 											<td data-field="id">
 												<?php

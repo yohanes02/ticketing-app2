@@ -32,6 +32,7 @@
 										<!-- <th data-field="idddd" data-sortable="true">Nama Kategori</th>
 										<th data-field="iddddd" data-sortable="true">Nama Sub Kategori</th> -->
 										<th data-field="iddc" data-sortable="true">Status (%)</th>
+										<th data-field="iddcC" data-sortable="true">Priority</th>
 										<th data-field="idde" data-sortable="true">Durasi</th>
 										<th data-field="iddf" data-sortable="true">Indikator</th>
 										<th data-field="idddddd" data-sortable="true">Aksi</th>
@@ -58,6 +59,7 @@
 											<td data-field="id"><?php //echo $row->nama_sub_kategori; 
 																?></td> -->
 											<td data-field="id"><?php echo $row->progress; ?></td>
+											<td data-field="id"><?php echo $row->nama_kondisi; ?></td>
 											<td data-field="id"><?php echo "Durasi" ?></td>
 											<td data-field="id"><?php echo "Indikator" ?></td>
 											<td data-field="id" class="center_aksi">

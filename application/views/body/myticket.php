@@ -27,10 +27,12 @@
 								<thead>
 									<tr>
 										<th data-field="no" data-sortable="true" width="10px"> No</th>
-										<th data-field="idd" data-sortable="true">Id Ticket</th>
-										<th data-field="iddd" data-sortable="true">Tanggal Ticket</th>
-										<th data-field="idddd" data-sortable="true">Nama Kategori</th>
-										<th data-field="iddddd" data-sortable="true">Nama Sub Kategori</th>
+										<th data-field="idd" data-sortable="true">Nomor Tiket</th>
+										<th data-field="iddd" data-sortable="true">Tanggal Tiket</th>
+										<th data-field="iddddddddd" data-sortable="true">Nama Tiket</th>
+										<th data-field="idddddddd" data-sortable="true">Pembuat Tiket</th>
+										<th data-field="idddd" data-sortable="true">Layanan</th>
+										<th data-field="iddddd" data-sortable="true">Sub Layanan</th>
 										<th data-field="idxddddd" data-sortable="true">Progress (%)</th>
 										<th data-field="idddddd" data-sortable="true">Status</th>
 										<th data-field="iddfdddd" data-sortable="true">Feedback</th>
@@ -43,6 +45,8 @@
 											<td data-field="no" width="10px"><?php echo $no; ?></td>
 											<td data-field="id"><a href="<?php echo base_url(); ?>myticket/myticket_detail/<?php echo $row->id_ticket; ?>"><?php echo $row->id_ticket; ?></a></td>
 											<td data-field="id"><?php echo $row->tanggal; ?></td>
+											<td data-field="id"><?php echo $row->problem_summary; ?></td>
+											<td data-field="id"><?php echo $row->nama; ?></td>
 											<td data-field="id"><?php echo $row->nama_kategori; ?></td>
 											<td data-field="id"><?php echo $row->nama_sub_kategori; ?></td>
 											<td data-field="id"><?php echo $row->progress; ?></td>

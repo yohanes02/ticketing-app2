@@ -194,7 +194,7 @@ class Myassignment extends CI_Controller
 		$data['problem_detail'] = $row->problem_detail;
 		$data['file'] = $row->file;
 		$file = explode("/", $row->file);
-		$data['file_name'] = $file[count($file)-1];
+		$data['file_name'] = $file[count($file) - 1];
 		$data['comment'] = $row->comment;
 		$data['priority'] = $row->nama_kondisi;
 
@@ -212,7 +212,7 @@ class Myassignment extends CI_Controller
 		$ticket = strtoupper(trim($this->input->post('id_ticket')));
 		$ticket_name = strtoupper(trim($this->input->post('problem_summary')));
 		$ticket_priority = strtoupper(trim($this->input->post('nama_kondisi')));
-		
+
 		// $sql = "SELECT nama_kondisi FROM kondisi WHERE id_kondisi = $ticket_priority";
 		// $row = $this->db->query($sql)->row(); 
 
@@ -239,7 +239,7 @@ class Myassignment extends CI_Controller
 		$reported_email = $this->input->post('reported_email');
 		$reported = $this->input->post('reported');
 
-		if($progress == '100') {
+		if ($progress == '100') {
 			$content = '
 			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 			<html xmlns="http://www.w3.org/1999/xhtml">
@@ -262,9 +262,9 @@ class Myassignment extends CI_Controller
 									<br>
 									<p>Tiket berikut ini kami informasikan bahwa telah selesai/solved.</p>
 									<br>
-									<p>Nomor Tiket: <strong>'. $ticket .'</strong></p>
-									<p>Nama Tiket: <strong>'. $ticket_name .'</strong></p>
-									<p>Prioritas Tiket: <strong>'. $ticket_priority .'</strong></p>
+									<p>Nomor Tiket: <strong>' . $ticket . '</strong></p>
+									<p>Nama Tiket: <strong>' . $ticket_name . '</strong></p>
+									<p>Prioritas Tiket: <strong>' . $ticket_priority . '</strong></p>
 									<br>
 									<p>Hormat kami,</p>
 									<p><strong>Smart Helpdesk Ticketing</strong></p>
@@ -293,10 +293,16 @@ class Myassignment extends CI_Controller
 		$this->db->trans_complete();
 
 		if ($this->db->trans_status() === FALSE) {
-
+			$this->session->set_flashdata("msg", "<div class='alert bg-danger' role='alert'>
+			<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+			<svg class='glyph stroked empty-message'><use xlink:href='#stroked-empty-message'></use></svg> Progress gagal tersimpan.
+			</div>");
 			redirect('myassignment/myassignment_list');
 		} else {
-
+			$this->session->set_flashdata("msg", "<div class='alert bg-success' role='alert'>
+			<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+			<svg class='glyph stroked empty-message'><use xlink:href='#stroked-empty-message'></use></svg> Progress tersimpan.
+			</div>");
 			redirect('myassignment/myassignment_list');
 		}
 	}

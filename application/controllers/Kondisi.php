@@ -139,6 +139,23 @@ class Kondisi extends CI_Controller
 
 		$kriteria = $this->db->get('kriteria')->result_array();
 
+		$arrNormalisasiNilai = [];
+		foreach ($kriteria as $key2 => $value2) {
+			$normaliasiNilai = floatval($this->input->post($value2['code'])) / 100;
+			array_push($arrNormalisasiNilai, $normaliasiNilai);
+		}
+
+		$arrNilai = [];
+		$i = 0;
+		foreach ($kriteria as $key3 => $value3) {
+			$nilaiWithBobot = $arrNormalisasiNilai[$i] * $value3['weight'];
+			array_push($arrNilai, $nilaiWithBobot);
+			$i++;
+		}
+
+		$nilaiFinal = array_sum($arrNilai);
+		$data['nilai_akhir'] = $nilaiFinal;
+
 		$this->db->trans_start();
 
 		$this->db->insert('kondisi', $data);
@@ -229,6 +246,23 @@ class Kondisi extends CI_Controller
 		$data['waktu_respon'] = $waktu_respon;
 
 		$kriteria = $this->db->get('kriteria')->result_array();
+
+		$arrNormalisasiNilai = [];
+		foreach ($kriteria as $key2 => $value2) {
+			$normaliasiNilai = floatval($this->input->post($value2['code'])) / 100;
+			array_push($arrNormalisasiNilai, $normaliasiNilai);
+		}
+
+		$arrNilai = [];
+		$i = 0;
+		foreach ($kriteria as $key3 => $value3) {
+			$nilaiWithBobot = $arrNormalisasiNilai[$i] * $value3['weight'];
+			array_push($arrNilai, $nilaiWithBobot);
+			$i++;
+		}
+
+		$nilaiFinal = array_sum($arrNilai);
+		$data['nilai_akhir'] = $nilaiFinal;
 
 		$this->db->trans_start();
 
