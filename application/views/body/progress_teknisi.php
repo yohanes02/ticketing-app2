@@ -23,13 +23,118 @@
 			<div class="panel-body">
 
 				<div class="list-group">
-					<a href="#" class="list-group-item active">
-						<?php echo $id_ticket; ?>
+					<a href="#" class="list-group-item active"><strong>DETAIL TIKET</strong></a>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>No Tiket</strong>
+							</div>
+							<div class="col-md col-sm">
+								<?php echo ": " . $id_ticket; ?>
+							</div>
+						</div>
+					</div>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>User</strong>
+							</div>
+							<div class="col-md col-sm">
+								<?php echo ": " . $reported; ?>
+							</div>
+						</div>
+					</div>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>Departemen</strong>
+							</div>
+							<div class="col-md col-sm">
+								<?php echo ": " . $nama_dept; ?>
+							</div>
+						</div>
+					</div>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>Divisi</strong>
+							</div>
+							<div class="col-md col-sm">
+								<?php echo ": " . $nama_divisi; ?>
+							</div>
+						</div>
+					</div>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>Layanan</strong>
+							</div>
+							<div class="col-md col-sm">
+								<?php echo ": " . $nama_kategori; ?>
+							</div>
+						</div>
+					</div>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>Sub Layanan</strong>
+							</div>
+							<div class="col-md col-sm">
+								<?php echo ": " . $nama_sub_kategori; ?>
+							</div>
+						</div>
+					</div>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>Nama Tiket</strong>
+							</div>
+							<div class="col-md col-sm">
+								<?php echo ": " . $problem_summary; ?>
+							</div>
+						</div>
+					</div>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>Deskripsi</strong>
+							</div>
+							<div class="col-md col-sm">
+								<?php echo ": " . $problem_detail; ?>
+							</div>
+						</div>
+					</div>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>File</strong>
+							</div>
+							<div class="col-md col-sm">
+								<!-- <?php //echo ": " . $photo; 
+										?> -->
+								<!-- <img src="<?php //echo base_url() . $photo 
+												?>" alt="" width="500px" height="300px"> -->
+								<a href="<?php echo base_url() . $file ?>" target="_blank"><?php echo ": " . $file_name ?></a>
+							</div>
+						</div>
+					</div>
+					<div class="list-group-item">
+						<div class="col">
+							<div class="col-md-2 col-sm-4">
+								<strong>Prioritas Task</strong>
+							</div>
+							<div class="col-md col-sm">
+								<?php echo ": " . $priority; ?>
+							</div>
+						</div>
+					</div>
+					<!-- <a href="#" class="list-group-item">
+						<?php //echo $id_ticket; ?>
 					</a>
-					<a href="#" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> &nbsp;<?php echo $tanggal; ?></a>
-					<a href="#" class="list-group-item"><span class="glyphicon glyphicon-briefcase"></span> &nbsp;<?php echo $nama_kategori; ?></a>
-					<a href="#" class="list-group-item"><span class="glyphicon glyphicon-briefcase"></span> &nbsp;<?php echo $nama_sub_kategori; ?></a>
-					<a href="#" class="list-group-item"><span class="glyphicon glyphicon-user"></span> &nbsp;<?php echo $reported; ?></a>
+					<a href="#" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> &nbsp;<?php //echo $tanggal; ?></a>
+					<a href="#" class="list-group-item"><span class="glyphicon glyphicon-briefcase"></span> &nbsp;<?php //echo $nama_kategori; ?></a>
+					<a href="#" class="list-group-item"><span class="glyphicon glyphicon-briefcase"></span> &nbsp;<?php //echo $nama_sub_kategori; ?></a>
+					<a href="#" class="list-group-item"><span class="glyphicon glyphicon-user"></span> &nbsp;<?php //echo $reported; ?></a> -->
 				</div>
 
 

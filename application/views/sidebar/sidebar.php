@@ -37,13 +37,6 @@
 			<li class="active"><a href="<?php echo base_url(); ?>ticket/add"><svg class="glyph stroked open folder">
 						<use xlink:href="#stroked-open-folder" />
 					</svg> New Ticket</a></li>
-			<li><a href="<?php echo base_url(); ?>list_ticket/ticket_list"><svg class="glyph stroked notepad ">
-						<use xlink:href="#stroked-notepad" />
-					</svg> List Ticket (<?php if (empty($notif_approval)) {
-											echo "0";
-										} else {
-											echo $notif_list_ticket;
-										} ?>)</a></li>
 			<!-- <li><a href="<?php echo base_url(); ?>approval/approval_list"><svg class="glyph stroked email"><use xlink:href="#stroked-email"/></svg><use xlink:href="#stroked-male-user"></use></svg> Aprroval Ticket (<?php //if(empty($notif_approval)) { echo "0"; }else{ echo $notif_approval;} 
 																																																							?>)</a></li> -->
 			<li><a href="<?php echo base_url(); ?>myticket/myticket_list"><svg class="glyph stroked open letter">
@@ -56,16 +49,25 @@
 											} else {
 												echo $notif_assignment;
 											} ?>)</a></li>
+			<li><a href="<?php echo base_url(); ?>list_ticket/ticket_list"><svg class="glyph stroked notepad ">
+						<use xlink:href="#stroked-notepad" />
+					</svg> List Ticket (<?php if (empty($notif_approval)) {
+											echo "0";
+										} else {
+											echo $notif_list_ticket;
+										} ?>)</a></li>
 			<li><a href="<?php echo base_url(); ?>dashboard_teknisi/teknisi_view"><svg class="glyph stroked calendar">
 						<use xlink:href="#stroked-male-user"></use>
 					</svg> Report Teknisi</a></li>
-			<li><a href="<?php echo base_url(); ?>informasi/informasi_list"><svg class="glyph stroked sound on">
+			<!-- <li><a href="<?php //echo base_url(); 
+								?>informasi/informasi_list"><svg class="glyph stroked sound on">
 						<use xlink:href="#stroked-sound-on" />
-					</svg> Informasi</a></li>
+					</svg> Informasi</a></li> -->
 
-			<li><a href="<?php echo base_url(); ?>informasi_view"><svg class="glyph stroked sound on">
+			<!-- <li><a href="<?php //echo base_url(); 
+								?>informasi_view"><svg class="glyph stroked sound on">
 						<use xlink:href="#stroked-sound-on" />
-					</svg> News</a></li>
+					</svg> News</a></li> -->
 
 		<?php
 		} else if ($this->session->userdata('level') == "TEKNISI") { ?>
@@ -76,9 +78,10 @@
 			<li><a href="<?php echo base_url(); ?>myassignment/myassignment_list"><svg class="glyph stroked clipboard with paper">
 						<use xlink:href="#stroked-clipboard-with-paper" />
 					</svg> My Assigment Ticket</a></li>
-			<li><a href="<?php echo base_url(); ?>informasi_view"><svg class="glyph stroked sound on">
+			<!-- <li><a href="<?php //echo base_url(); 
+								?>informasi_view"><svg class="glyph stroked sound on">
 						<use xlink:href="#stroked-sound-on" />
-					</svg> News</a></li>
+					</svg> News</a></li> -->
 
 
 		<?php } else if ($this->session->userdata('level') == "USER" and $this->session->userdata('id_jabatan') == 3) { ?>
@@ -92,9 +95,10 @@
 						<use xlink:href="#stroked-open-letter" />
 					</svg> My Ticket</a></li>
 
-			<li><a href="<?php echo base_url(); ?>informasi_view"><svg class="glyph stroked sound on">
+			<!-- <li><a href="<?php //echo base_url(); 
+								?>informasi_view"><svg class="glyph stroked sound on">
 						<use xlink:href="#stroked-sound-on" />
-					</svg> News</a></li>
+					</svg> News</a></li> -->
 		<?php } else if ($this->session->userdata('level') == "USER" and $this->session->userdata('id_jabatan') == 2) { ?>
 
 			<li class="active"><a href="<?php echo base_url(); ?>home"><svg class="glyph stroked dashboard-dial">
@@ -105,9 +109,10 @@
 					</svg>
 					<use xlink:href="#stroked-male-user"></use></svg> Aprroval Ticket
 				</a></li>
-			<li><a href="<?php echo base_url(); ?>informasi_view"><svg class="glyph stroked sound on">
+			<!-- <li><a href="<?php //echo base_url(); 
+								?>informasi_view"><svg class="glyph stroked sound on">
 						<use xlink:href="#stroked-sound-on" />
-					</svg> News</a></li>
+					</svg> News</a></li> -->
 			<li><a href="<?php echo base_url(); ?>dashboard_teknisi/teknisi_view"><svg class="glyph stroked calendar">
 						<use xlink:href="#stroked-male-user"></use>
 					</svg> Report Teknisi</a></li>

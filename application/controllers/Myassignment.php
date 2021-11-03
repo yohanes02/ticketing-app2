@@ -161,13 +161,14 @@ class Myassignment extends CI_Controller
 
 		//end notification
 
-		$sql = "SELECT A.progress, A.status, D.nama, C.id_kategori, A.id_ticket, A.tanggal, A.tanggal_solved, B.nama_sub_kategori, C.nama_kategori, D.email, A.problem_summary, A.problem_detail, A.photo, A.comment, F.nama_dept, E.nama_bagian_dept
+		$sql = "SELECT A.progress, A.status, D.nama, C.id_kategori, A.id_ticket, A.tanggal, A.tanggal_solved, B.nama_sub_kategori, C.nama_kategori, D.email, A.problem_summary, A.problem_detail, A.file, A.comment, F.nama_dept, E.nama_bagian_dept, G.nama_kondisi
                 FROM ticket A 
                 LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                 LEFT JOIN kategori C ON C.id_kategori = B.id_kategori 
                 LEFT JOIN karyawan D ON D.nik = A.reported 
 				LEFT JOIN bagian_departemen E ON E.id_bagian_dept = D.id_bagian_dept
 				LEFT JOIN departemen F ON F.id_dept = E.id_dept
+				LEFT JOIN kondisi G ON G.id_kondisi = A.id_kondisi
                 WHERE A.id_ticket = '$id'";
 
 		$row = $this->db->query($sql)->row();
@@ -191,8 +192,11 @@ class Myassignment extends CI_Controller
 		$data['reported_email'] = $row->email;
 		$data['problem_summary'] = $row->problem_summary;
 		$data['problem_detail'] = $row->problem_detail;
-		$data['photo'] = $row->photo;
+		$data['file'] = $row->file;
+		$file = explode("/", $row->file);
+		$data['file_name'] = $file[count($file)-1];
 		$data['comment'] = $row->comment;
+		$data['priority'] = $row->nama_kondisi;
 
 		$this->load->view('template', $data);
 	}
@@ -207,7 +211,10 @@ class Myassignment extends CI_Controller
 
 		$ticket = strtoupper(trim($this->input->post('id_ticket')));
 		$ticket_name = strtoupper(trim($this->input->post('problem_summary')));
-		$ticket_priority = "Immediate";
+		$ticket_priority = strtoupper(trim($this->input->post('nama_kondisi')));
+		
+		// $sql = "SELECT nama_kondisi FROM kondisi WHERE id_kondisi = $ticket_priority";
+		// $row = $this->db->query($sql)->row(); 
 
 		$progress = strtoupper(trim($this->input->post('progress')));
 
@@ -232,45 +239,48 @@ class Myassignment extends CI_Controller
 		$reported_email = $this->input->post('reported_email');
 		$reported = $this->input->post('reported');
 
-		$content = '
-		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-		<html xmlns="http://www.w3.org/1999/xhtml">
-			<head>
-				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			 </head>
-			 <body>
-				<table align="center" border="0" cellpadding="0" cellspacing="0" width="1000" style="margin:0px">
-					<tr>
-						<td style="background-color:rgb(0, 178, 255); color: rgb(255, 255, 255);">
-							<h1>Smart Helpdesk Ticketing</h1>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h2>Ticket Selesai / Solved</h2>
-							<div>
-								<p>Yth, Bapak/Ibu ' . $reported . '.</p>
-								<br>
-								<p>Tiket berikut ini kami informasikan bahwa telah selesai/solved.</p>
-								<br>
-								<p>Nomor Tiket: <strong>'. $ticket .'</strong></p>
-								<p>Nama Tiket: <strong>'. $ticket_name .'</strong></p>
-								<p>Prioritas Tiket: <strong>'. $ticket_priority .'</strong></p>
-								<br>
-								<p>Hormat kami,</p>
-								<p><strong>Smart Helpdesk Ticketing</strong></p>
-							<div>
-						</td>
-					</tr>
-				</table>
-			 </body>
-		</html>';
-		$this->email->from('helpdeskticketing@gmail.com', 'Smart Helpdesk Ticketing');
-		$this->email->to($reported_email);
-		$this->email->subject('Ticket Telah Solved');
-		$this->email->message($content);
-		$this->email->send();
+		if($progress == '100') {
+			$content = '
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+				<head>
+					<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+					<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+				 </head>
+				 <body>
+					<table align="center" border="0" cellpadding="0" cellspacing="0" width="1000" style="margin:0px">
+						<tr>
+							<td style="background-color:rgb(0, 178, 255); color: rgb(255, 255, 255);">
+								<h1>Smart Helpdesk Ticketing</h1>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h2>Ticket Selesai / Solved</h2>
+								<div>
+									<p>Yth, Bapak/Ibu ' . $reported . '.</p>
+									<br>
+									<p>Tiket berikut ini kami informasikan bahwa telah selesai/solved.</p>
+									<br>
+									<p>Nomor Tiket: <strong>'. $ticket .'</strong></p>
+									<p>Nama Tiket: <strong>'. $ticket_name .'</strong></p>
+									<p>Prioritas Tiket: <strong>'. $ticket_priority .'</strong></p>
+									<br>
+									<p>Hormat kami,</p>
+									<p><strong>Smart Helpdesk Ticketing</strong></p>
+								<div>
+							</td>
+						</tr>
+					</table>
+				 </body>
+			</html>';
+			$this->email->from('helpdeskticketing@gmail.com', 'Smart Helpdesk Ticketing');
+			$this->email->to($reported_email);
+			$this->email->subject('Ticket Telah Solved');
+			$this->email->message($content);
+			$this->email->send();
+		}
+
 
 
 		$this->db->trans_start();

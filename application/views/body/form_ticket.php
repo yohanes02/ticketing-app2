@@ -17,6 +17,19 @@
 			});
 		});
 
+		$("#button_form").click(function() {
+			var ext = "jpg|png|jpeg|doc|docx|pdf";
+			var extAllowed = ext.split("|");
+			var filePath = $("#file_doc").val();
+			var fileSplit = filePath.split(".");
+			var fileExt = fileSplit[fileSplit.length - 1];
+			if(ext.includes(fileExt) == false) {
+				alert("Tolong cek kembali file, pastikan sesuai dengan tipe yang diperbolehkan");
+			} else {
+				$("#submit_form").trigger('click');
+			}
+		});
+
 	});
 </script>
 <div class="row">
@@ -130,7 +143,7 @@
 									</div>
 									<div class="form-group">
 										<label>Upload Kendala</label>
-										<input type="file" class="form-control" id="file_pic" name="file_pic">
+										<input type="file" class="form-control" id="file_doc" name="file_doc">
 									</div>
 								</div>
 							</div>
@@ -163,7 +176,8 @@
 								</div>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary">Simpan</button>
+						<input type="submit" id="submit_form" hidden>
+						<button type="button" id="button_form" class="btn btn-primary">Simpan</button>
 						<a href="<?php echo base_url(); ?>karyawan/karyawan_list" class="btn btn-default">Batal</a>
 				</div>
 

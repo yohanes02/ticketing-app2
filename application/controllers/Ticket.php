@@ -143,7 +143,7 @@ class Ticket extends Core_Controller
 		$data['problem_summary'] = $problem_summary;
 		$data['problem_detail'] = $problem_detail;
 		$data['id_teknisi'] = $id_teknisi;
-		$data['photo'] = "";
+		$data['file'] = "";
 		$data['comment'] = $problem_comment;
 		$data['status'] = 4;
 		$data['progress'] = 0;
@@ -151,27 +151,20 @@ class Ticket extends Core_Controller
 		$tracking['id_ticket'] = $ticket;
 		$tracking['tanggal'] = $tanggal;
 		$tracking['status'] = "Created Ticket";
-		$tracking['deskripsi'] = "";
+		$tracking['deskripsi'] = $problem_comment;
 		$tracking['id_user'] = $id_user;
 
-		if (!empty($_FILES['file_pic']['name'])) {
-			// $nameFile = trim($post['name_pic']);
-			// $nameFile = preg_replace('/\s+/', '-', $nameFile);
-			// $nameFile = strtolower($nameFile);
-			// $data = array(
-			// 	'name' => $nameFile,
-			// );
-			$upload = $this->ups("file_pic", null, true);
-			// print_r($upload);
-			// die();
-			$photo = 'photos/' . $upload;
+		if (!empty($_FILES['file_doc']['name'])) {
+			$upload = $this->ups("file_doc", null, true);
+			$file = 'files/' . $upload;
 		}
-		$data['photo'] = $photo;
+		$data['file'] = $file;
+		// print_r($data);die;
 
 		// SEND EMAIL
 		$this->db->trans_start();
 		$query = "SELECT K.nama, K.email FROM teknisi T, karyawan K WHERE T.id_teknisi = '$id_teknisi' AND T.nik = K.nik";
-		$row = $this->db->query($query)->row(); 
+		$row = $this->db->query($query)->row();
 		$this->db->trans_complete();
 
 		$query2 = "select nama_kondisi from kondisi where id_kondisi = '$id_kondisi'";
@@ -198,9 +191,9 @@ class Ticket extends Core_Controller
 								<br>
 								<p>Daftar pekerjaan berikut perlu untuk difollow up segera.</p>
 								<br>
-								<p>Nomor Tiket: <strong>'. $ticket .'</strong></p>
-								<p>Nama Tiket: <strong>'. $problem_summary .'</strong></p>
-								<p>Prioritas Tiket: <strong>'. $row2->nama_kondisi .'</strong></p>
+								<p>Nomor Tiket: <strong>' . $ticket . '</strong></p>
+								<p>Nama Tiket: <strong>' . $problem_summary . '</strong></p>
+								<p>Prioritas Tiket: <strong>' . $row2->nama_kondisi . '</strong></p>
 								<br>
 								<p>Hormat kami,</p>
 								<p><strong>Smart Helpdesk Ticketing</strong></p>

@@ -68,7 +68,7 @@ function __construct(){
         $data['sidebar'] = "sidebar/sidebar";
         $data['body'] = "body/progress_teknisi";
 
-         $sql = "SELECT A.status, A.progress,A.tanggal, A.tanggal_solved, A.tanggal_proses, A.tanggal_solved, F.nama AS nama_teknisi, D.nama, C.id_kategori, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori
+         $sql = "SELECT A.status, A.progress, A.tanggal, A.tanggal_solved, A.tanggal_proses, A.tanggal_solved, F.nama AS nama_teknisi, D.nama, C.id_kategori, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori
                 FROM ticket A 
                 LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                 LEFT JOIN kategori C ON C.id_kategori = B.id_kategori 

@@ -197,13 +197,16 @@ class List_ticket extends CI_Controller
 
 		//end notification
 
-		$sql = "SELECT A.status, A.progress, A.tanggal,  A.tanggal_proses, A.tanggal_solved, F.nama AS nama_teknisi, D.nama, C.id_kategori, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori
+		$sql = "SELECT A.status, A.progress, A.tanggal, A.tanggal_proses, A.tanggal_solved, A.problem_summary, A.problem_detail, A.file, G.nama_bagian_dept, H.nama_dept, F.nama AS nama_teknisi, D.nama, C.id_kategori, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori, I.nama_kondisi
                 FROM ticket A 
                 LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                 LEFT JOIN kategori C ON C.id_kategori = B.id_kategori 
                 LEFT JOIN karyawan D ON D.nik = A.reported 
                 LEFT JOIN teknisi E ON E.id_teknisi = A.id_teknisi
                 LEFT JOIN karyawan F ON F.nik = E.nik 
+				LEFT JOIN bagian_departemen G ON G.id_bagian_dept = D.id_bagian_dept
+				LEFT JOIN departemen H ON H.id_dept = G.id_dept
+				LEFT JOIN kondisi I ON I.id_kondisi = A.id_kondisi
                 WHERE A.id_ticket = '$id'";
 
 		$row = $this->db->query($sql)->row();
@@ -218,11 +221,19 @@ class List_ticket extends CI_Controller
 		$data['tanggal'] = $row->tanggal;
 		$data['nama_sub_kategori'] = $row->nama_sub_kategori;
 		$data['nama_kategori'] = $row->nama_kategori;
+		$data['problem_summary'] = $row->problem_summary;
+		$data['problem_detail'] = $row->problem_detail;
+		$data['nama_dept'] = $row->nama_dept;
+		$data['nama_divisi'] = $row->nama_bagian_dept;
+		$file = explode("/", $row->file);
+		$data['file_name'] = $file[count($file) - 1];
+		$data['file'] = $row->file;
 		$data['reported'] = $row->nama;
 		$data['progress'] = $row->progress;
 		$data['tanggal_proses'] = $row->tanggal_proses;
 		$data['tanggal'] = $row->tanggal;
 		$data['tanggal_solved'] = $row->tanggal_solved;
+		$data['priority'] = $row->nama_kondisi;
 
 		//TRACKING TICKET
 		$data_trackingticket = $this->model_app->data_trackingticket($id);

@@ -38,7 +38,11 @@
 			<div class="panel-heading"><svg class="glyph stroked male user ">
 					<use xlink:href="#stroked-male-user" />
 				</svg>
-				<a href="#" style="text-decoration:none"><?php if($flag != "edit") {echo "Tambah";} else {echo "Edit";} ?> Data Karyawan</a>
+				<a href="#" style="text-decoration:none"><?php if ($flag != "edit") {
+																echo "Tambah";
+															} else {
+																echo "Edit";
+															} ?> Data Karyawan</a>
 			</div>
 			<div class="panel-body">
 
@@ -69,7 +73,8 @@
 
 						<!-- <div class="form-group">
 							<label>Divisi</label>
-							<?php //echo form_dropdown('id_departemen', $dd_departemen, $id_departemen, ' id="id_departemen" required class="form-control"'); ?>
+							<?php //echo form_dropdown('id_departemen', $dd_departemen, $id_departemen, ' id="id_departemen" required class="form-control"'); 
+							?>
 						</div> -->
 
 						<div id="div-order" class="form-group">
@@ -90,7 +95,11 @@
 						</div>
 						<div class="form-group">
 							<label>Email</label>
-							<input class="form-control" name="email" placeholder="Email" value="<?php echo "email"; ?>" required>
+							<?php if ($flag == "edit") { ?>
+								<input class="form-control" name="email" placeholder="Email" value="<?php echo $email; ?>" required>
+							<?php } else { ?>
+								<input class="form-control" name="email" placeholder="Email" required>
+							<?php } ?>
 						</div>
 
 						<button type="submit" class="btn btn-primary">Simpan</button>

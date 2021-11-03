@@ -109,11 +109,12 @@
 								<div class="list-group-item">
 									<div class="col">
 										<div class="col-md-2 col-sm-4">
-											<strong>Foto</strong>
+											<strong>File</strong>
 										</div>
 										<div class="col-md col-sm">
 											<!-- <?php //echo ": " . $photo; ?> -->
-											<img src="<?php echo base_url() . $photo ?>" alt="" width="500px" height="300px">
+											<!-- <img src="<?php //echo base_url() . $photo ?>" alt="" width="500px" height="300px"> -->
+											<a href="<?php echo base_url() . $file ?>" target="_blank"><?php echo ": " . $file_name ?></a>
 										</div>
 									</div>
 								</div>
@@ -123,7 +124,7 @@
 											<strong>Prioritas Task</strong>
 										</div>
 										<div class="col-md col-sm">
-											<?php echo ": " . "priority"; ?>
+											<?php echo ": " . $priority; ?>
 										</div>
 									</div>
 								</div>
@@ -164,6 +165,7 @@
 										<input type="hidden" class="form-control" name="reported_email" value="<?php echo $reported_email; ?>">
 										<input type="hidden" class="form-control" name="reported" value="<?php echo $reported; ?>">
 										<input type="hidden" class="form-control" name="problem_summary" value="<?php echo $problem_summary; ?>">
+										<input type="hidden" class="form-control" name="nama_kondisi" value="<?php echo $priority; ?>">
 
 										<div class="form-group">
 											<label>Progress Penyelesaian</label>
@@ -259,7 +261,7 @@
 										<tr>
 											<th>No</th>
 											<th>Nama</th>
-											<th>Tanggal Mulai M</th>
+											<th>Tanggal Mulai</th>
 											<th>Tanggal Selesai</th>
 											<th>Komentar</th>
 										</tr>
@@ -270,9 +272,9 @@
 											<td><?php echo $tanggal; ?></td>
 											<td>
 												<?php if ($tanggal_solved == '0000-00-00 00:00:00') {
-													echo ": " . $tanggal;
+													echo $tanggal;
 												} else {
-													echo ": " . $tanggal_solved;
+													echo $tanggal_solved;
 												}; ?>
 											</td>
 											<td><?php echo $comment; ?></td>
