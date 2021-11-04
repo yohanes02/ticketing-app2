@@ -199,6 +199,7 @@ class Myassignment extends CI_Controller
 		$data['file_name'] = $file[count($file) - 1];
 		$data['comment'] = $row->comment;
 		$data['priority'] = $row->nama_kondisi;
+		$data['datatracking'] = $this->model_app->data_trackingticket($id);
 
 		$this->load->view('template', $data);
 	}
@@ -225,6 +226,7 @@ class Myassignment extends CI_Controller
 			$data['tanggal_solved'] = $tanggal;
 		} else {
 			$data['status'] = 4;
+			$data['tanggal_proses'] = $tanggal;
 		}
 
 		$deskripsi_progress = strtoupper(trim($this->input->post('deskripsi_progress')));

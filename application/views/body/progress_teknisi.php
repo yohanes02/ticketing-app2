@@ -178,7 +178,7 @@
 							<?php if ($tanggal_proses == "0000-00-00 00:00:00") {
 								echo "BELUM DI PROSES";
 							} else { ?>
-								TANGGAL PROSES : <?php echo $tanggal_proses; ?>
+								TANGGAL PROSES TERAKHIR : <?php echo $tanggal_proses; ?>
 							<?php } ?>
 						</b>
 					</a>

@@ -262,23 +262,33 @@
 											<th>No</th>
 											<th>Nama</th>
 											<th>Tanggal Mulai</th>
-											<th>Tanggal Selesai</th>
+											<th>Proses Terakhir</th>
 											<th>Komentar</th>
 										</tr>
 
+<?php $no = 1; foreach ($datatracking as $row) { ?>
 										<tr>
-											<td>1</td>
-											<td><?php echo $reported; ?></td>
+											<td><?php echo $no; ?></td>
+											<td><?php echo $row->nama; ?></td>
 											<td><?php echo $tanggal; ?></td>
-											<td>
-												<?php if ($tanggal_solved == '0000-00-00 00:00:00') {
-													echo $tanggal;
-												} else {
-													echo $tanggal_solved;
-												}; ?>
-											</td>
-											<td><?php echo $comment; ?></td>
+											<td><?php echo $row->tanggal; ?></td>
+											<td><?php echo $row->deskripsi; ?></td>
 										</tr>
+<?php $no++;} ?>
+
+										<!-- <tr>
+											<td>1</td>
+											<td><?php //echo $reported; ?></td>
+											<td><?php //echo $tanggal; ?></td>
+											<td>
+												<?php //if ($tanggal_solved == '0000-00-00 00:00:00') {
+													//echo $tanggal;
+												//} else {
+													//echo $tanggal_solved;
+												//}; ?>
+											</td>
+											<td><?php //echo $comment; ?></td>
+										</tr> -->
 									</table>
 
 								</div>

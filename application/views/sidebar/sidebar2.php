@@ -143,8 +143,6 @@
 								?>informasi_view"><svg class="glyph stroked sound on">
 						<use xlink:href="#stroked-sound-on" />
 					</svg> News</a></li> -->
-
-			
 		<?php } else if ($this->session->userdata('level') == "USER" and $this->session->userdata('id_jabatan') == 2) { ?>
 
 			<li class=<?php if (isset($active20)) {
