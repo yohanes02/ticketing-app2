@@ -30,6 +30,7 @@
 							<th data-sortable="true">No</th>
 							<th data-sortable="true">Event</th>
 							<th data-sortable="true">Tanggal</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -39,6 +40,10 @@
 								<td data-field="no"><?php echo $no ?></td>
 								<td data-field="event"><?php echo $libur['event'] ?></td>
 								<td data-field="tanggal"><?php echo date('d F Y', strtotime($libur['tanggal'])) ?></td>
+								<td>
+									<a class="ubah btn btn-primary btn-xs" href="<?php echo base_url(); ?>libur/edit/<?php echo $libur['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
+									<a data-toggle="modal" title="Hapus Libur" class="hapus btn btn-danger btn-xs" href="#modKonfirmasi" data-id="<?php echo $libur['id']; ?>"><span class="glyphicon glyphicon-trash"></span></a>
+								</td>
 							</tr>
 						<?php $no++;
 						} ?>
