@@ -146,7 +146,7 @@ class Model_app extends CI_Model
                                    LEFT JOIN karyawan F ON F.nik = E.nik
 								   LEFT JOIN kondisi G ON G.id_kondisi = A.id_kondisi
                                    WHERE F.nik = '$id'
-                                   AND A.status IN (3,4,5,6)
+                                   AND A.status IN (3,4,5)
 								   ORDER BY G.nilai_akhir DESC, A.tanggal 
                                    ");
 		return $query->result();
