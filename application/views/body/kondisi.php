@@ -43,7 +43,7 @@
 												<?php foreach ($kondisi_quest as $key2 => $value2) { ?>
 													<?php if ($row->id_kondisi == $value2['kondisi_id']) {
 														if ($value2['kriteria_id'] == $value['id']) { ?>
-														<td><?php echo $value2['score'] ?></td>
+															<td><?php echo $value2['score'] ?></td>
 													<?php }
 													} ?>
 												<?php } ?>
@@ -54,7 +54,7 @@
 
 											<td>
 												<a class="ubah btn btn-primary btn-xs" href="<?php echo base_url(); ?>kondisi/edit/<?php echo $row->id_kondisi; ?>"><span class="glyphicon glyphicon-edit"></span></a>
-												<a data-toggle="modal" title="Hapus Kontak" class="hapus btn btn-danger btn-xs" href="#modKonfirmasi" data-id="<?php echo $row->id_kondisi; ?>"><span class="glyphicon glyphicon-trash"></span></a>
+												<a data-toggle="modal" title="Hapus Kontak" class="hapus btn btn-danger btn-xs" href="#modKonfirmasi1" data-id="<?php echo $row->id_kondisi; ?>"><span class="glyphicon glyphicon-trash"></span></a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -66,6 +66,53 @@
 				</div>
 			</div>
 			<!--/.row-->
+
+			<!-- Modal -->
+			<div class="modal fade" id="modKonfirmasi1" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title" style="font-weight:bold"><span class="glyphicon glyphicon-info-sign" style="color:#FFFFFF; font-size:24px"></span>Konfirmasi </h4>
+						</div>
+						<div class="modal-body">
+							Anda yakin akan menghapus data dengan ID : (<span id="mod1"></span>) ?
+						</div>
+						<div class="modal-footer">
+
+							<button type="button" class="btn btn-primary" id="oke1">Ya </button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close </button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- <script>
+				$(document).ready(function() {
+					$("#oke").click(function() {
+						var id = $("#mod").text();
+
+						var data = 'id=' + id;
+
+						$.ajax({
+							url: "<?php //echo base_url(); 
+									?><?php //echo $link; 
+																?>",
+							type: "POST",
+							data: data,
+							dataType: 'html',
+							cache: false,
+							success: function(data) {
+								location.reload();
+							}
+						});
+
+					});
+				});
+			</script> -->
 
 
 			<script>
@@ -107,10 +154,25 @@
 					$(".hapus").click(function() {
 						var id = $(this).data('id');
 
-						$(".modal-body #mod").text(id);
+						$(".modal-body #mod1").text(id);
 
 					});
+					$("#oke1").click(function() {
+						var id = $("#mod1").text();
+						console.log("CLICK", "<?php echo base_url(); ?>kondisi/delete/"+id);
 
+						var data = 'id=' + id;
+
+						$.ajax({
+							url: "<?php echo base_url(); ?>kondisi/delete/"+id,
+							type: "POST",
+							cache: false,
+							success: function(data) {
+								location.reload();
+							}
+						});
+
+					});
 				});
 			</script>
 

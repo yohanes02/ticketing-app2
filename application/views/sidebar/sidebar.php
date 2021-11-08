@@ -34,6 +34,11 @@
 						} ?>><a href="<?php echo base_url(); ?>kondisi/kondisi_list"><svg class="glyph stroked calendar">
 						<use xlink:href="#stroked-hourglass"></use>
 					</svg> Priority Task</a></li>
+			<li class=<?php if (isset($active25)) {
+							echo $active25;
+						} ?>><a href="<?php echo base_url(); ?>sla"><svg class="glyph stroked calendar">
+						<use xlink:href="#stroked-hourglass"></use>
+					</svg> SLA</a></li>
 			<li class=<?php if (isset($active24)) {
 							echo $active24;
 						} ?>><a href="<?php echo base_url(); ?>libur"><svg class="glyph stroked calendar">

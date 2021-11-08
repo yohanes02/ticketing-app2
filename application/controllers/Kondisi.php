@@ -295,4 +295,14 @@ class Kondisi extends CI_Controller
 			redirect('kondisi/kondisi_list');
 		}
 	}
+
+	function delete($id) {
+		$sql = "DELETE FROM kondisi WHERE id_kondisi = $id";
+		$this->db->query($sql);
+
+		$sql2 = "DELETE FROM kondisi_quest WHERE kondisi_id = $id";
+		$this->db->query($sql2);
+
+		// redirect('kondisi');
+	}
 }
