@@ -18,7 +18,9 @@
 			<div class="panel-heading"><svg class="glyph stroked male user ">
 					<use xlink:href="#stroked-male-user" />
 				</svg>
-				<a href="<?php echo base_url(); ?>dashboard_teknisi/teknisi_view" style="text-decoration:none">REPORT TEKNISI <a href="<?php echo base_url(); ?>dashboard_teknisi/pdfreportteknisi/<?php echo $id_teknisi; ?>" class="btn btn-danger" target="_blank">Pdf</a></a>
+				<a href="<?php echo base_url(); ?>dashboard_teknisi/teknisi_view" style="text-decoration:none">REPORT TEKNISI 
+					<!-- <a href="<?php //echo base_url(); ?>dashboard_teknisi/pdfreportteknisi/<?php //echo $id_teknisi; ?>" class="btn btn-danger" target="_blank">Pdf</a> -->
+				</a>
 			</div>
 			<div class="panel-body">
 

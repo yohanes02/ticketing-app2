@@ -17,7 +17,9 @@
 						<div class="panel-heading"><svg class="glyph stroked male user ">
 								<use xlink:href="#stroked-male-user" />
 							</svg>
-							<a href="<?php echo base_url(); ?>departemen/add" style="text-decoration:none">List Ticket <a href="<?php echo base_url(); ?>list_ticket/pdflistticket" class="btn btn-danger" target="_blank">Pdf</a></a>
+							<a href="<?php echo base_url(); ?>departemen/add" style="text-decoration:none">List Ticket 
+								<!-- <a href="<?php //echo base_url(); ?>list_ticket/pdflistticket" class="btn btn-danger" target="_blank">Pdf</a> -->
+							</a>
 						</div>
 						<div class="panel-body">
 							<?php echo $this->session->flashdata("msg"); ?>
@@ -34,7 +36,7 @@
 										<th data-field="iddddd" data-sortable="true">Sub Layanan</th>
 										<th data-field="iddd" data-sortable="true">Progres(%)</th>
 										<th data-field="idddddd" data-sortable="true">Status</th>
-										<th>Aksi</th>
+										<!-- <th>Aksi</th> -->
 									</tr>
 								</thead>
 								<tbody>
@@ -74,9 +76,9 @@
 
 												?>
 											</td>
-											<td>
+											<!-- <td>
 
-											</td>
+											</td> -->
 										</tr>
 									<?php endforeach; ?>
 								</tbody>

@@ -29,8 +29,8 @@
 											<use xlink:href="#stroked-male-user" />
 										</svg>
 										<b><?php echo $row->nama; ?></b>
-										<br>
-										<b><?php echo $row->point; ?> POINT</b>
+										<!-- <br>
+										<b><?php //echo $row->point; ?> POINT</b> -->
 									</div>
 
 								</a>

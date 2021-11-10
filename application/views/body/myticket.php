@@ -17,7 +17,8 @@
 						<div class="panel-heading"><svg class="glyph stroked male user ">
 								<use xlink:href="#stroked-male-user" />
 							</svg>
-							<a href="#" style="text-decoration:none">My Ticket</a> <a href="<?php echo base_url(); ?>myticket/pdfmyticket" class="btn btn-danger" target="_blank">Pdf</a>
+							<a href="#" style="text-decoration:none">My Ticket</a> 
+							<!-- <a href="<?php //echo base_url(); ?>myticket/pdfmyticket" class="btn btn-danger" target="_blank">Pdf</a> -->
 						</div>
 						<div class="panel-body"></div>
 						<div class="panel-body">

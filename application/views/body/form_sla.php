@@ -45,7 +45,7 @@
 															} ?>>Pilih Priority</option>
 										<?php
 										foreach ($data_kondisi as $key => $value) { ?>
-											<option value="<?php echo $value['id_kondisi'] ?>" <?php if($value['id_kondisi'] == $kondisi_id) {echo "selected";} ?>><?php echo $value['nama_kondisi'] ?></option>
+											<option value="<?php echo $value['id_kondisi'] ?>" <?php if(isset($kondisi_id) && $value['id_kondisi'] == $kondisi_id) {echo "selected";} ?>><?php echo $value['nama_kondisi'] ?></option>
 										<?php	}
 										?>
 									</select>
@@ -81,9 +81,9 @@
 										<option disabled <?php if ($flag != 'edit') {
 																echo 'selected';
 															} ?>>Pilih Indikator</option>
-										<option value="1" <?php if($indikator_id == '1') {echo 'selected';} ?>>Lebih dari durasi yang ditentukan</option>
-										<option value="2" <?php if($indikator_id == '2') {echo 'selected';} ?>>Sama dengan durasi yang ditentukan</option>
-										<option value="3" <?php if($indikator_id == '3') {echo 'selected';} ?>>Kurang dari durasi yang ditentukan</option>
+										<option value="1" <?php if(isset($indikator_id) && $indikator_id == '1') {echo 'selected';} ?>>Lebih dari durasi yang ditentukan</option>
+										<option value="2" <?php if(isset($indikator_id) && $indikator_id == '2') {echo 'selected';} ?>>Sama dengan durasi yang ditentukan</option>
+										<option value="3" <?php if(isset($indikator_id) && $indikator_id == '3') {echo 'selected';} ?>>Kurang dari durasi yang ditentukan</option>
 									</select>
 								</div>
 							</div>

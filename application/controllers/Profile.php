@@ -57,7 +57,7 @@ function view()
 
         $sql = 
         "SELECT A.nik, A.nama, A.alamat, A.jk, B.level, B.level, C.nama_jabatan, D.nama_bagian_dept, E.nama_dept, C.nama_jabatan 
-        FROM KARYAWAN A 
+        FROM karyawan A 
         LEFT JOIN user B ON B.username = A.nik 
         LEFT JOIN jabatan C ON C.id_jabatan = A.id_jabatan 
         LEFT JOIN bagian_departemen D ON D.id_bagian_dept = A.id_bagian_dept 

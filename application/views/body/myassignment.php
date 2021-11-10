@@ -60,8 +60,190 @@
 																?></td> -->
 											<td data-field="id"><?php echo $row->progress; ?></td>
 											<td data-field="id"><?php echo $row->nama_kondisi; ?></td>
-											<td data-field="id"><?php echo "Durasi" ?></td>
-											<td data-field="id"><?php echo "Indikator" ?></td>
+											<?php $durasiBef; $durasi; $durasiOut; $kondisi; $warnaBefTime; $warnaInTime; $warnaOutTime; foreach($datasla as $sla) : ?>
+												<?php if($row->id_kondisi == $sla->kondisi_id) : ?>
+													<?php $kondisi = $sla->kondisi_id;?>
+													<?php if($sla->indikator_id == '3') : ?>
+														<?php $durasiBef = intval($sla->durasi); $warnaBefTime = $sla->warna; ?>
+													<?php endif; ?>
+													<?php if($sla->indikator_id == '2') : ?>
+														<?php $durasi = intval($sla->durasi); $warnaInTime = $sla->warna ?>
+														<?php if(intval($sla->durasi) >= 24) : ?>
+															<?php $modHours = intval($sla->durasi) % 24; $days = floor(intval($sla->durasi) / 24); ?>
+															<?php if($modHours == 0) : ?>
+																<td data-field="id"><?php echo "$days hari" ?></td>
+															<?php else : ?>
+																<td data-field="id"><?php echo "$days hari $modHours jam" ?></td>
+															<?php endif; ?>
+														<?php else : ?>
+															<td data-field="id"><?php echo $sla->durasi . " jam" ?></td>
+														<?php endif; ?>
+													<?php endif; ?>
+													<?php if($sla->indikator_id == '1') : ?>
+														<?php $durasiOut = intval($sla->durasi); $warnaOutTime = $sla->warna; ?>
+													<?php endif; ?>
+												<?php endif; ?>
+											<?php endforeach; ?>
+											<?php
+												$warna;
+												$hourMinus = null;
+												$tanggalPembuatan = strtotime($row->tanggal);
+												// $tanggalPembuatan = strtotime("2021-12-21 12:38:57");
+												// $tanggalTest = strtotime("2021-12-27 10:38:57");
+												$tanggalSekarang = strtotime(date("Y-m-d H:i:s"));
+												// $tanggalSekarang = strtotime("2021-12-25 13:38:57");
+												$dateStart = new DateTimeImmutable($row->tanggal);
+												// $dateStart = new DateTimeImmutable("2021-12-21 12:38:57");
+												$dateNow = new DateTimeImmutable(date("Y-m-d H:i:s"));
+												// $dateNow = new DateTimeImmutable("2021-12-25 13:38:57");
+												$diffHour = abs($tanggalSekarang - $tanggalPembuatan)/(60*60);
+												// echo "FLOOR ".floor($diffHour/24); 1
+												// echo "<br>"; 2
+												// $diffHourTest = abs($tanggalTest - $tanggalPembuatan)/(60*60);
+													$idx = 0;
+													$idxWork = 0;
+													// for ($i=0; $i < ceil($diffHourTest/24); $i++) {
+													// for ($i=0; $i < round($diffHour/24); $i++) { 
+													
+													/// START LOOP
+													// for ($i=0; $i < floor($diffHour/24); $i++) { 
+													// 	// $date = new DateTimeImmutable($row->tanggal);
+													// 	$date = new DateTimeImmutable("2021-11-09 12:38:57");
+													// 	$date = $date->modify('+'.($i+1).' day');
+													// 	if($date->format("Y-m-d") != $dateNow->format("Y-m-d")) {
+													// 		$willPrint = $date->format('Y-m-d H:i:s');
+													// 		if($date->format('D') == 'Sat' || $date->format('D') == 'Sun') {
+													// 			if($dateNow->format("Y-m-d") == $date->format("Y-m-d")) {
+													// 				echo "WEEKEND".$dateNow->format("Y-m-d")."<br>";
+													// 				if(intval($dateNow->format("H")) < 23 && intval($dateNow->format("i")) <= 59) {
+													// 					$hourMinus = 24 - intval($dateNow->format("H"));
+													// 				} else {
+													// 					$idx++;
+													// 				}
+													// 			} else {
+													// 				$idx++;
+													// 			}
+													// 			// echo $date->format('Y-m-d');
+													// 			// echo "<br>";
+													// 			// $idx++;
+													// 			// $willPrint = $date->format('D');
+													// 		}
+													// 		elseif(in_array($date->format("Y-m-d"), $datalibur)) {
+													// 			if($dateNow->format("Y-m-d") == $date->format("Y-m-d")) {
+													// 				// echo "LIBUR".date("Y-m-d");
+													// 				if(intval($dateNow->format("H")) < 23 && intval($dateNow->format("i")) <= 59) {
+													// 					$hourMinus = 24 - intval($dateNow->format("H"));
+													// 				} else {
+													// 					$idx++;
+													// 				}
+													// 			} else {
+													// 				$idx++;
+													// 			}
+													// 		}
+													// 	}			
+													// }
+													// END LOOP
+													for ($i=0; $i < floor($diffHour/24); $i++) { 
+														$date = $dateStart;
+														$date = $date->modify('+'.($i+1).' day');
+														if($date->format("Y-m-d") != $dateNow->format("Y-m-d")) {
+															if($date->format('D') == 'Sat' || $date->format('D') == 'Sun'){
+																$idx++;
+															} elseif (in_array($date->format("Y-m-d"), $datalibur)) {
+																$idx++;
+															} else {
+																$idxWork++;
+															}
+														}			
+													}
+												$startLeftTime;$endPastTime;
+												if($dateNow->format("D") != "Sat" && $dateNow->format("D") != "Sun" && in_array($dateNow->format("Y-m-d"), $datalibur) == false) {
+													if($dateNow->format("Y-m-d") != $dateStart->format("Y-m-d")) {
+														$endPastTime = intval($dateNow->format("H"));
+														// if(intval($dateNow->format("H")) == 0) {
+															$endPastTime = $endPastTime + intval($dateNow->format("i"))/60;
+														// }
+													} else {
+														$endPastTime = 0;
+													}
+												} else {
+													$endPastTime = 0;
+												}
+
+												if($dateStart->format("D") != "Sat" && $dateStart->format("D") != "Sun" && in_array($dateStart->format("Y-m-d"), $datalibur) == false) {
+													if($dateNow->format("Y-m-d") != $dateStart->format("Y-m-d")) {
+														$a = 23 - intval($dateStart->format("H"));
+														$b = 60 - intval($dateStart->format("i"));
+														$minutes = ($a*60) + $b;
+														$startLeftTime = $minutes / 60;
+														// $startLeftTime = 23 - intval($dateStart->format("H"));
+													// if(intval($dateStart->format("H")) == 23) {
+														// $startLeftTime = $startLeftTime + (60-intval($dateNow->format("i")))/60;
+													// }
+													} else {
+														echo "AAAA <br>";
+														$a = $dateStart->format("H");
+														$b = $dateNow->format("H");
+														$c = 0;
+														$d = intval($b) - intval($a);
+														if($d > 0 && intval($dateNow->format("i")) < intval($dateStart->format("i"))) {
+															$c = intval($dateStart->format("i")) - intval($dateNow->format("i"));
+														}
+														$e = ($d*60) - $c;
+														if($d == 0) {
+															$e = intval($dateNow->format("i")) - intval($dateStart->format("i"));
+														}
+														$startLeftTime = $e/60;
+													}
+												} else {
+													$startLeftTime = 0;
+												}
+
+												// echo $startLeftTime." <<<<>>>>>> ".$endPastTime." <<<<<>>>>>".$idx; 3
+												// echo "<br>"; 4
+												// echo $diffHourTest;
+												// echo "<br>";
+												// $diffHourTest = $diffHourTest - $idx*24;
+												// echo $diffHourTest;
+												// echo "<br>";
+												// echo $diffHour;
+												// echo "<br>";
+												// $tanggalSekarang = strtotime(date("Y-m-d H:i:s"));
+												// $diffHour = abs($tanggalSekarang - $tanggalPembuatan)/(60*60);
+												$diffHour = $diffHour-($idx*24);
+												if($hourMinus != null) {
+													// echo "HOURMINUS"."<br>";
+													$diffHour = $diffHour - $hourMinus;
+												}
+
+												$hourWork = ($startLeftTime + ($idxWork*24) + $endPastTime);
+												// echo $hourWork;
+												// echo "<br>";
+												// echo date("Y-m-d"); 7
+												// echo "<br>"; 8
+												// print_r($datalibur); 9
+												// echo "<br>"; 10
+												// echo $idx; 11
+												// echo "<br>"; 12
+
+												// if($diffHour <= $durasiBef) {
+												// 	$warna = $warnaBefTime;
+												// } elseif($diffHour > $durasiBef && $diffHour <= $durasiOut) {
+												// 	$warna = $warnaInTime;
+												// } else {
+												// 	$warna = $warnaOutTime;
+												// }
+												if($hourWork <= $durasiBef) {
+													$warna = $warnaBefTime;
+												} elseif($hourWork > $durasiBef && $hourWork <= $durasiOut) {
+													$warna = $warnaInTime;
+												} else {
+													$warna = $warnaOutTime;
+												}
+											?>
+											<td data-field="id">
+												<div style="padding: 5px; width: 25px; height: 25px; background-color: <?php echo $warna; ?>"></div>
+											</td>
 											<td data-field="id" class="center_aksi">
 												<?php if ($row->status == 4) { ?>
 													<a href="<?php echo base_url(); ?>myassignment/ticket_detail/<?php echo $row->id_ticket; ?>" class="btn btn-default">Update Tiket</a>

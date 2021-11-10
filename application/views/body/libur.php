@@ -53,3 +53,17 @@
 		</div>
 	</div>
 </div>
+
+<?php $this->load->view('konfirmasi'); ?>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".hapus").click(function() {
+			var id = $(this).data('id');
+
+			$(".modal-body #mod").text(id);
+
+		});
+
+	});
+</script>

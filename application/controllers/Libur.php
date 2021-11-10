@@ -28,7 +28,9 @@ class Libur extends CI_Controller
 
 		$sql = "SELECT * FROM libur";
 		$data['hari_libur'] = $this->db->query($sql)->result_array();
-		
+
+		$data['link'] = "libur/hapus";
+
 		$this->load->view('template', $data);
 	}
 
@@ -68,7 +70,7 @@ class Libur extends CI_Controller
 			redirect('libur');
 		}
 	}
-	
+
 	function edit($id)
 	{
 		$data['header'] = "header/header";
@@ -76,8 +78,8 @@ class Libur extends CI_Controller
 		$data['sidebar'] = "sidebar/sidebar";
 		$data['active24'] = "active";
 		$data['body'] = "body/form_libur";
-		
-		$sqlRes = $this->db->where(['id'=>$id])->get('libur')->row();
+
+		$sqlRes = $this->db->where(['id' => $id])->get('libur')->row();
 
 		$data['id'] = $sqlRes->id;
 		$data['event'] = $sqlRes->event;
@@ -87,14 +89,15 @@ class Libur extends CI_Controller
 		$this->load->view('template', $data);
 	}
 
-	function update() {
+	function update()
+	{
 		$post = $this->input->post();
 		$id = $post['id_event'];
 		$data['event'] = $post['nama_event'];
 		$data['tanggal'] = date('Y-m-d', strtotime($post['tanggal']));
 
 		$this->db->trans_start();
-		$this->db->where(['id'=>$id]);
+		$this->db->where(['id' => $id]);
 		$this->db->update('libur', $data);
 		$this->db->trans_complete();
 
@@ -111,5 +114,17 @@ class Libur extends CI_Controller
 			    </div>");
 			redirect('libur');
 		}
+	}
+
+	function hapus()
+	{
+		$id = $_POST['id'];
+
+		$this->db->trans_start();
+
+		$this->db->where('id', $id);
+		$this->db->delete('libur');
+
+		$this->db->trans_complete();
 	}
 }

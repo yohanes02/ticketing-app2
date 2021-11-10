@@ -56,7 +56,15 @@ class Myassignment extends CI_Controller
 
 
 		$datamyassignment = $this->model_app->datamyassignment($id_user);
+		$datasla = $this->model_app->datasla();
+		$datalibur = [];
+		$queryLibur = $this->db->query("SELECT tanggal FROM libur")->result();
+		foreach ($queryLibur as $libur) {
+			array_push($datalibur, $libur->tanggal);
+		}
 		$data['datamyassignment'] = $datamyassignment;
+		$data['datasla'] = $datasla;
+		$data['datalibur'] = $datalibur;
 
 		$this->load->view('template', $data);
 	}
