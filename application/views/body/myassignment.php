@@ -71,12 +71,12 @@
 														<?php if(intval($sla->durasi) >= 24) : ?>
 															<?php $modHours = intval($sla->durasi) % 24; $days = floor(intval($sla->durasi) / 24); ?>
 															<?php if($modHours == 0) : ?>
-																<td data-field="id"><?php echo "$days hari" ?></td>
+																<!-- <td data-field="id"><?php //echo "$days hari" ?></td> -->
 															<?php else : ?>
-																<td data-field="id"><?php echo "$days hari $modHours jam" ?></td>
+																<!-- <td data-field="id"><?php //echo "$days hari $modHours jam" ?></td> -->
 															<?php endif; ?>
 														<?php else : ?>
-															<td data-field="id"><?php echo $sla->durasi . " jam" ?></td>
+															<!-- <td data-field="id"><?php //echo $sla->durasi . " jam" ?></td> -->
 														<?php endif; ?>
 													<?php endif; ?>
 													<?php if($sla->indikator_id == '1') : ?>
@@ -181,7 +181,7 @@
 														// $startLeftTime = $startLeftTime + (60-intval($dateNow->format("i")))/60;
 													// }
 													} else {
-														echo "AAAA <br>";
+														// echo "AAAA <br>";
 														$a = $dateStart->format("H");
 														$b = $dateNow->format("H");
 														$c = 0;
@@ -241,6 +241,16 @@
 													$warna = $warnaOutTime;
 												}
 											?>
+											<?php if(intval($hourWork) >= 24) : ?>
+												<?php $modHours = intval($hourWork) % 24; $days = floor(intval($hourWork) / 24); ?>
+												<?php if($modHours == 0) : ?>
+													<td data-field="id"><?php echo "$days hari" ?></td>
+												<?php else : ?>
+													<td data-field="id"><?php echo "$days hari $modHours jam" ?></td>
+												<?php endif; ?>
+											<?php else : ?>
+												<td data-field="id"><?php echo floor($hourWork*10) / 10 . " jam" ?></td>
+											<?php endif; ?>
 											<td data-field="id">
 												<div style="padding: 5px; width: 25px; height: 25px; background-color: <?php echo $warna; ?>"></div>
 											</td>

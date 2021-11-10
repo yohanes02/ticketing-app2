@@ -104,9 +104,10 @@ class Model_app extends CI_Model
 	public function data_trackingticket($id)
 	{
 
-		$query = $this->db->query("SELECT A.tanggal, A.status, A.deskripsi, B.nama
+		$query = $this->db->query("SELECT A.tanggal, A.status, A.deskripsi, B.nama, C.durasi_solved
                                    FROM tracking A 
                                    LEFT JOIN karyawan B ON B.nik = A.id_user
+								   LEFT JOIN ticket C ON C.id_ticket = A.id_ticket
                                    WHERE A.id_ticket ='$id'");
 		return $query->result();
 	}

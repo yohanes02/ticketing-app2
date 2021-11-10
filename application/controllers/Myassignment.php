@@ -171,7 +171,7 @@ class Myassignment extends CI_Controller
 
 		//end notification
 
-		$sql = "SELECT A.progress, A.status, D.nama, C.id_kategori, A.id_ticket, A.tanggal, A.tanggal_solved, B.nama_sub_kategori, C.nama_kategori, D.email, A.problem_summary, A.problem_detail, A.file, A.comment, F.nama_dept, E.nama_bagian_dept, G.nama_kondisi
+		$sql = "SELECT A.progress, A.status, D.nama, C.id_kategori, A.id_ticket, A.tanggal, A.tanggal_solved, B.nama_sub_kategori, C.nama_kategori, D.email, A.problem_summary, A.problem_detail, A.file, A.comment, F.nama_dept, E.nama_bagian_dept, G.nama_kondisi, G.id_kondisi
                 FROM ticket A 
                 LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                 LEFT JOIN kategori C ON C.id_kategori = B.id_kategori 
@@ -207,7 +207,16 @@ class Myassignment extends CI_Controller
 		$data['file_name'] = $file[count($file) - 1];
 		$data['comment'] = $row->comment;
 		$data['priority'] = $row->nama_kondisi;
+		$data['id_priority'] = $row->id_kondisi;
 		$data['datatracking'] = $this->model_app->data_trackingticket($id);
+		
+		$datalibur = [];
+		$queryLibur = $this->db->query("SELECT tanggal FROM libur")->result();
+		foreach ($queryLibur as $libur) {
+			array_push($datalibur, $libur->tanggal);
+		}
+		$data['datasla'] = $this->model_app->datasla();
+		$data['datalibur'] = $datalibur;
 
 		$this->load->view('template', $data);
 	}
@@ -224,6 +233,8 @@ class Myassignment extends CI_Controller
 		$ticket_name = strtoupper(trim($this->input->post('problem_summary')));
 		$ticket_priority = strtoupper(trim($this->input->post('nama_kondisi')));
 
+		$durasi = $this->input->post('durasi_ticket');
+
 		// $sql = "SELECT nama_kondisi FROM kondisi WHERE id_kondisi = $ticket_priority";
 		// $row = $this->db->query($sql)->row(); 
 
@@ -232,6 +243,7 @@ class Myassignment extends CI_Controller
 		if ($progress == 100) {
 			$data['status'] = 6;
 			$data['tanggal_solved'] = $tanggal;
+			$data['durasi_solved'] = $durasi;
 		} else {
 			$data['status'] = 4;
 			$data['tanggal_proses'] = $tanggal;

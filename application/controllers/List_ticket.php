@@ -200,7 +200,7 @@ class List_ticket extends CI_Controller
 
 		//end notification
 
-		$sql = "SELECT A.status, A.progress, A.tanggal, A.tanggal_proses, A.tanggal_solved, A.problem_summary, A.problem_detail, A.file, G.nama_bagian_dept, H.nama_dept, F.nama AS nama_teknisi, D.nama, C.id_kategori, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori, I.nama_kondisi
+		$sql = "SELECT A.status, A.progress, A.tanggal, A.tanggal_proses, A.tanggal_solved, A.problem_summary, A.problem_detail, A.file, G.nama_bagian_dept, H.nama_dept, F.nama AS nama_teknisi, D.nama, C.id_kategori, A.id_ticket, A.tanggal, B.nama_sub_kategori, C.nama_kategori, I.nama_kondisi, I.id_kondisi, A.durasi_solved
                 FROM ticket A 
                 LEFT JOIN sub_kategori B ON B.id_sub_kategori = A.id_sub_kategori
                 LEFT JOIN kategori C ON C.id_kategori = B.id_kategori 
@@ -237,10 +237,21 @@ class List_ticket extends CI_Controller
 		$data['tanggal'] = $row->tanggal;
 		$data['tanggal_solved'] = $row->tanggal_solved;
 		$data['priority'] = $row->nama_kondisi;
+		$data['id_priority'] = $row->id_kondisi;
+		$data['status_ticket'] = $row->status;
+		$data['durasi_solved'] = $row->durasi_solved;
 
 		//TRACKING TICKET
 		$data_trackingticket = $this->model_app->data_trackingticket($id);
 		$data['data_trackingticket'] = $data_trackingticket;
+
+		$datalibur = [];
+		$queryLibur = $this->db->query("SELECT tanggal FROM libur")->result();
+		foreach ($queryLibur as $libur) {
+			array_push($datalibur, $libur->tanggal);
+		}
+		$data['datasla'] = $this->model_app->datasla();
+		$data['datalibur'] = $datalibur;
 
 
 		$this->load->view('template', $data);
