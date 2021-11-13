@@ -91,12 +91,6 @@
 			</div>
 			<!--/.row-->
 
-			<div class="alert bg-warning" role="alert">
-				<svg class="glyph stroked flag">
-					<use xlink:href="#stroked-flag"></use>
-				</svg> Berikanlah Feeedback Sesuai Kinerja Teknisi <a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
-			</div>
-
 
 			<?php //echo $this->session->flashdata("msg"); ?>
 

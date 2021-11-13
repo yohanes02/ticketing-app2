@@ -32,17 +32,17 @@
 			<li class=<?php if (isset($active6)) {
 							echo $active6;
 						} ?>><a href="<?php echo base_url(); ?>kondisi/kondisi_list"><svg class="glyph stroked calendar">
-						<use xlink:href="#stroked-hourglass"></use>
+						<use xlink:href="#stroked-app-window"></use>
 					</svg> Priority Task</a></li>
 			<li class=<?php if (isset($active25)) {
 							echo $active25;
 						} ?>><a href="<?php echo base_url(); ?>sla"><svg class="glyph stroked calendar">
-						<use xlink:href="#stroked-hourglass"></use>
+						<use xlink:href="#stroked-app-window"></use>
 					</svg> SLA</a></li>
 			<li class=<?php if (isset($active24)) {
 							echo $active24;
 						} ?>><a href="<?php echo base_url(); ?>libur"><svg class="glyph stroked calendar">
-						<use xlink:href="#stroked-hourglass"></use>
+						<use xlink:href="#stroked-app-window"></use>
 					</svg> Hari Libur</a></li>
 			<li class=<?php if (isset($active7)) {
 							echo $active7;
@@ -88,11 +88,7 @@
 							echo $active13;
 						} ?>><a href="<?php echo base_url(); ?>list_ticket/ticket_list"><svg class="glyph stroked notepad ">
 						<use xlink:href="#stroked-notepad" />
-					</svg> Monitor Tiket (<?php if (empty($notif_approval)) {
-												echo "0";
-											} else {
-												echo $notif_list_ticket;
-											} ?>)</a></li>
+					</svg> Monitor Tiket</a></li>
 			<li class=<?php if (isset($active14)) {
 							echo $active14;
 						} ?>><a href="<?php echo base_url(); ?>dashboard_teknisi/teknisi_view"><svg class="glyph stroked calendar">

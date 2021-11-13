@@ -32,7 +32,7 @@
 									</div>
 									<div class="form-group">
 										<label>Divisi</label>
-										<input class="form-control" name="nama_bagian_dept" value="<?php echo $nama_bagian_dept; ?>" placeholder="Nama Bagian Departemen" required>
+										<input class="form-control" name="nama_bagian_dept" value="<?php echo $nama_bagian_dept; ?>" placeholder="Nama Divisi" required>
 									</div>
 
 

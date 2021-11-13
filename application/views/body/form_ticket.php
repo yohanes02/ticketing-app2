@@ -47,7 +47,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<div class="panel panel-primary">
+		<div class="panel">
 			<div class="panel-heading"><svg class="glyph stroked male user ">
 					<use xlink:href="#stroked-male-user" />
 				</svg>
@@ -61,7 +61,7 @@
 						<input type="hidden" class="form-control" name="id_ticket" value="<?php echo $id_ticket; ?>">
 						<input type="hidden" class="form-control" name="id_user" value="<?php echo $id_user; ?>">
 
-						<div class="panel panel-danger">
+						<div class="panel panel-primary">
 							<!-- <div class="panel-heading">
 								Pelapor Masalah
 							</div> -->
@@ -106,7 +106,7 @@
 							</div>
 						</div>
 
-						<div class="panel panel-danger">
+						<div class="panel panel-primary">
 							<!-- <div class="panel-heading">
 								Deskripsi Masalah
 							</div> -->
@@ -149,7 +149,7 @@
 							</div>
 						</div>
 
-						<div class="panel panel-danger">
+						<div class="panel panel-primary">
 							<div class="panel-heading">
 								Disposisi
 							</div>
@@ -163,7 +163,7 @@
 							</div>
 						</div>
 
-						<div class="panel panel-danger">
+						<div class="panel panel-primary">
 							<div class="panel-heading">
 								Komentar
 							</div>

@@ -6,6 +6,7 @@
 <link href="<?php echo base_url();?>assets/css/datepicker3.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/bootstrap-table.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/styles.css" rel="stylesheet">
+<link href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
 <!--Icons-->
 <script src="<?php echo base_url();?>assets/js/lumino.glyphs.js"></script>

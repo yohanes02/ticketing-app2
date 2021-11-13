@@ -16,8 +16,9 @@
 			<div class="col-xs-12 col-md-6 col-lg-4">
 				<div class="panel panel-blue panel-widget ">
 					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>
+						<div class="col-sm-3 col-lg-5 widget-left" style="padding-top: 10px !important;">
+							<!-- <svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> -->
+							<i class="fa fa-4x fa-ticket"></i>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large"><?php echo $jml_ticket;?></div>
@@ -29,8 +30,9 @@
 			<div class="col-xs-12 col-md-6 col-lg-4">
 				<div class="panel panel-orange panel-widget">
 					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
+						<div class="col-sm-3 col-lg-5 widget-left" style="padding-top: 10px !important;">
+							<!-- <svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> -->
+							<i class="fa fa-4x fa-ticket"></i>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large"><?php echo $jml_ticket_solved_raw;?></div>
@@ -42,8 +44,9 @@
 			<div class="col-xs-12 col-md-6 col-lg-4">
 				<div class="panel panel-teal panel-widget">
 					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
+						<div class="col-sm-3 col-lg-5 widget-left" style="padding-top: 10px !important;">
+							<!-- <svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> -->
+							<i class="fa fa-4x fa-ticket"></i>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large"><?php echo $jml_ticket_process_raw;?></div>
@@ -109,10 +112,11 @@
 		<div class="row">
 			<?php foreach ($priority as $key => $value) { ?>
 				<div class="col-xs-12 col-md-6 col-lg-3">
-					<div class="panel panel-blue panel-widget ">
+					<div class="panel panel-blue panel-widget">
 						<div class="row no-padding">
 							<div class="col-sm-3 col-lg-5 widget-left">
-								<svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>
+								<!-- <svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> -->
+								<i class="fa fa-3x fa-ticket"></i>
 							</div>
 							<div class="col-sm-9 col-lg-7 widget-right">
 								<div class="large"><?php echo $value['jumlah'];?></div>
@@ -134,12 +138,13 @@
 
 				<div class="panel panel-teal panel-widget">
 					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked star"><use xlink:href="#stroked-star"/></svg>
+						<div class="col-sm-3 col-lg-5 widget-left" style="padding-top: 10px !important;">
+							<!-- <svg class="glyph stroked star"><use xlink:href="#stroked-star"/></svg> -->
+							<i class="fa fa-4x fa-thumbs-up"></i>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large"><?php echo ceil($jml_feedback_positiv);?>%</div>
-							<div class="text-muted">Feedback Positiv</div>
+							<div class="text-muted">Feedback Positif</div>
 						</div>
 					</div>
 				</div>
@@ -152,12 +157,13 @@
 
 				<div class="panel panel-red panel-widget">
 					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"/></svg>
+						<div class="col-sm-3 col-lg-5 widget-left" style="padding-top: 10px !important;">
+							<!-- <svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"/></svg> -->
+							<i class="fa fa-4x fa-thumbs-down"></i>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large"><?php echo ceil($jml_feedback_negativ);?>%</div>
-							<div class="text-muted">Feedback Negativ</div>
+							<div class="text-muted">Feedback Negatif</div>
 						</div>
 					</div>
 				</div>
